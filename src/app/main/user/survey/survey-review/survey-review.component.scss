@@ -1,0 +1,28 @@
+.dataSubmission{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.dataSubmission mat-icon{
+    font-size: 50px;
+    height: 50px;
+    width: 50px;
+    color: green;
+    margin-top: 50px;
+}
+
+.dataSubmission h2{
+    font-size: 30px;
+    text-align: center;
+    margin: 10px 0;
+    line-height: 1.2;
+}
+
+.dataSubmission p{
+    margin: 10px 0 20px;
+    text-align: center;
+}

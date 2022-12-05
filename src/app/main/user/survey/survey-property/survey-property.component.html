@@ -1,0 +1,258 @@
+<mat-card>
+    <div fxLayout="row">
+        <!-- Form -->
+        <div class="leftSection">
+            <form name="surveyPropertyForm" [formGroup]="surveyPropertyForm" novalidate autocomplete="off">
+                <div fxlayout="column" class="form-width">
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Property Type</mat-label>
+                            <mat-select formControlName="propertyType" required>
+                                <mat-option value="-1">Select</mat-option>
+                                <mat-option value="1">Retail Outlet</mat-option>
+                                <mat-option value="2">Private Property</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="!surveyPropertyForm?.get('propertyType')?.valid">
+                                Please enter correct property type
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-icon matTooltip="Content: Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book." 
+                            color="primary">info
+                        </mat-icon>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Highway Type</mat-label>
+                            <mat-select formControlName="highwayType" required>
+                                <mat-option value="NH">NH</mat-option>
+                                <mat-option value="SH">SH</mat-option>
+                                <mat-option value="MDR">MDR</mat-option>
+                                <mat-option value="ODR">ODR</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="!surveyPropertyForm?.get('highwayType')?.valid">
+                                Please enter correct highway type
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Highway No.</mat-label>
+                            <input matInput formControlName="highwayNo" required>
+                            <mat-error *ngIf="!surveyPropertyForm?.get('highwayNo')?.valid">
+                                Please enter correct NH No.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <br />
+                    <div>Address</div>
+                    <div *ngIf="surveyPropertyForm?.get('propertyType')?.value === '2'">
+                        <mat-form-field>
+                            <mat-label>Owner Name</mat-label>
+                            <input matInput formControlName="ownerName">
+                            <mat-error *ngIf="!surveyPropertyForm?.get('ownerName')?.valid">
+                                Please enter correct Owner Name
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Plot No.</mat-label>
+                            <input matInput formControlName="plotNo">
+                            <mat-error *ngIf="!surveyPropertyForm?.get('plotNo')?.valid">
+                                Please enter correct plot no.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Khata No.</mat-label>
+                            <input matInput formControlName="khataNo">
+                            <mat-error *ngIf="!surveyPropertyForm?.get('khataNo')?.valid">
+                                Please enter correct khata no.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>City</mat-label>
+                            <input matInput formControlName="city">
+                            <mat-error *ngIf="!surveyPropertyForm?.get('city')?.valid">
+                                Please enter correct city.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>State</mat-label>
+                            <!-- <mat-select formControlName="state" required>
+                                <mat-option value="select">Select</mat-option>
+                                <mat-option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</mat-option>
+                                <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
+                                <mat-option value="Arunachal Pradesh">Arunachal Pradesh</mat-option>
+                                <mat-option value="Assam">Assam</mat-option>
+                                <mat-option value="Bihar">Bihar</mat-option>
+                                <mat-option value="Chandigarh">Chandigarh</mat-option>
+                                <mat-option value="Chhattisgarh">Chhattisgarh</mat-option>
+                                <mat-option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</mat-option>
+                                <mat-option value="Daman and Diu">Daman and Diu</mat-option>
+                                <mat-option value="Delhi">Delhi</mat-option>
+                                <mat-option value="Goa">Goa</mat-option>
+                                <mat-option value="Gujarat">Gujarat</mat-option>
+                                <mat-option value="Haryana">Haryana</mat-option>
+                                <mat-option value="Himachal Pradesh">Himachal Pradesh</mat-option>
+                                <mat-option value="Jammu and Kashmir">Jammu and Kashmir</mat-option>
+                                <mat-option value="Jharkhand">Jharkhand</mat-option>
+                                <mat-option value="Karnataka">Karnataka</mat-option>
+                                <mat-option value="Kerala">Kerala</mat-option>
+                                <mat-option value="Ladakh">Ladakh</mat-option>
+                                <mat-option value="Lakshadweep">Lakshadweep</mat-option>
+                                <mat-option value="Madhya Pradesh">Madhya Pradesh</mat-option>
+                                <mat-option value="Maharashtra">Maharashtra</mat-option>
+                                <mat-option value="Manipur">Manipur</mat-option>
+                                <mat-option value="Meghalaya">Meghalaya</mat-option>
+                                <mat-option value="Mizoram">Mizoram</mat-option>
+                                <mat-option value="Nagaland">Nagaland</mat-option>
+                                <mat-option value="Odisha">Odisha</mat-option>
+                                <mat-option value="Puducherry">Puducherry</mat-option>
+                                <mat-option value="Punjab">Punjab</mat-option>
+                                <mat-option value="Rajasthan">Rajasthan</mat-option>
+                                <mat-option value="Sikkim">Sikkim</mat-option>
+                                <mat-option value="Tamil Nadu">Tamil Nadu</mat-option>
+                                <mat-option value="Telangana">Telangana</mat-option>
+                                <mat-option value="Tripura">Tripura</mat-option>
+                                <mat-option value="Uttar Pradesh">Uttar Pradesh</mat-option>
+                                <mat-option value="Uttarakhand">Uttarakhand</mat-option>
+                                <mat-option value="West Bengal">West Bengal</mat-option>
+                            </mat-select> -->
+                            <mat-select formControlName="state" required (selectionChange)="changeState($event.value)">
+                                <mat-option *ngFor ="let st of stateList" [value]="st.state">{{st.state}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="!surveyPropertyForm?.get('state')?.valid">
+                                Please enter correct State
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>District</mat-label>
+                            <mat-select formControlName="district" required>
+                                <mat-option *ngFor ="let district of districts" [value]="district">{{district}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="!surveyPropertyForm?.get('district')?.valid">
+                                Please enter correct district.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div *ngIf="surveyPropertyForm?.get('propertyType')?.value === '1'">
+                        <mat-form-field>
+                            <mat-label>Oil Company Name</mat-label>
+                            <input matInput formControlName="oilCompanyName">
+                            <mat-error *ngIf="!surveyPropertyForm?.get('oilCompanyName')?.valid">
+                                Please enter correct oil company name.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>City Direction</div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>City Towards Left</mat-label>
+                            <input matInput formControlName="cityTowardsLeft" required>
+                            <mat-error *ngIf="!surveyPropertyForm?.get('cityTowardsLeft')?.valid">
+                                Please enter correct city towards left.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>City Towards Right</mat-label>
+                            <input matInput formControlName="cityTowardsRight" required>
+                            <mat-error *ngIf="!surveyPropertyForm?.get('cityTowardsRight')?.valid">
+                                Please enter correct city towards right.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <br />
+                    <div>Coordinate of Plot<br /> (Left Side of Plot)</div>
+                    <button type="button" (click)="getLeftCoordinates()"> Get Location!</button>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Longitude</mat-label>
+                            <input matInput formControlName="longLeft">
+                            <mat-error *ngIf="!surveyPropertyForm?.get('longLeft')?.valid">
+                                Please enter correct longitude.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Latitude</mat-label>
+                            <input matInput formControlName="latLeft">
+                            <mat-error *ngIf="!surveyPropertyForm?.get('latLeft')?.valid">
+                                Please enter correct latitude.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <br />
+                    <div>Coordinate of Plot <br /> (Right Side of Plot)</div>
+                    <button type="button" (click)="getRightCoordinates()"> Get Location!</button>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Longitude</mat-label>
+                            <input matInput formControlName="longRight">
+                            <mat-error *ngIf="!surveyPropertyForm?.get('longRight')?.valid">
+                                Please enter correct longitude.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Latitude</mat-label>
+                            <input matInput formControlName="latRight">
+                            <mat-error *ngIf="!surveyPropertyForm?.get('latRight')?.valid">
+                                Please enter correct latitude.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Design -->
+        <div class="rightSection" #scrollMe [scrollTop]="scrollMe.scrollHeight/4 + 30">
+            <app-survey-diagram #diagram></app-survey-diagram>
+        </div>
+    </div>
+</mat-card>
+<!-- Stepper button -->
+<mat-card-actions>
+    <div fxLayout="column" fxLayoutAlign="end end">
+        <div>
+            <button mat-raised-button color="primary" type="button" (click)="submitProperty()"
+                [disabled]="!surveyPropertyForm.valid" matStepperNext>Save & Next
+            </button>
+            <!-- <button mat-raised-button color="primary" type="button" (click)="submitProperty()" 
+                    [disabled]="surveyPropertyForm.invalid" matStepperNext >Save & Next
+            </button> -->
+            <!-- <button mat-raised-button color="primary" type="button" (click)="exportAsPDF('surveyData');">Submit Survey
+            </button> -->
+        </div>
+    </div>
+</mat-card-actions>

@@ -1,0 +1,9 @@
+
+<mat-progress-bar mode="indeterminate" class="route-progress-bar" color="accent" *ngIf="isRouterLoader"></mat-progress-bar>
+
+<app-layout></app-layout>
+
+<div class="overlay-spinner" *ngIf="isHTTPLoader">
+    <mat-progress-spinner class="spinner" mode="indeterminate"></mat-progress-spinner>
+</div>
+

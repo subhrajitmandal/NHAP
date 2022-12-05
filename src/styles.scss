@@ -1,0 +1,136 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+    // max-width: 1024px;
+    margin: 0 auto;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.display-none {
+    display: none;
+}
+
+.mat-snack-bar-handset {
+    width: calc(100% - 40px) !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.pr-10 {
+    padding-right: 10px;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+    height: 80px;
+}
+
+.mat-toolbar h1{
+    font-size: 40px;
+}
+
+.leftSection {
+    width: 40%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    position: relative;
+    overflow: auto;
+    max-height: calc(100vh - 300px);
+}
+
+.rightSection {
+    width: 60%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    border: 1px solid #222;
+    position: relative;
+    display: flex;
+    overflow: auto;
+    height: calc(100vh - 300px);
+    // min-height: 450px;
+}
+
+.mat-dialog-content .mat-form-field {
+    display: block !important;
+}
+
+.mainContent{
+    width: 100%;
+    min-height: 300px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.mat-drawer-container{
+    height: 100%;
+}
+
+@media(max-width:768px) {
+    .mat-horizontal-stepper-header {
+        display: flex;
+        height: 50px !important;
+        overflow: hidden;
+        align-items: center;
+        padding: 0 24px;
+    }
+
+    .mat-card {
+        border: 1px solid #222;
+        max-height: calc(100vh - 300px);
+        overflow: auto;
+    }
+
+    mat-stepper {
+        max-height: calc(100vh - 55px);
+        position: fixed;
+        width: 100%;
+        top: 55px;
+    }
+
+
+    .leftSection {
+        width: 40%;
+        height: 100%;
+        float: left;
+        position: relative;
+        overflow: auto;
+        max-height: calc(100vh - 300px);
+    }
+
+    .rightSection {
+        width: 60%;
+        height: 100%;
+        display: flex;
+        float: left;
+        position: relative;
+        overflow: auto;
+        height: calc(100vh - 300px);
+    }
+
+    .mat-card {
+        transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+        display: block;
+        position: relative;
+        padding: 10px !important;
+        border-radius: 4px;
+    }
+}
+
+.pointer-events-none {
+    pointer-events: none;
+}

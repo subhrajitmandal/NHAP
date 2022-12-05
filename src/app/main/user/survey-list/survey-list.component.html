@@ -1,0 +1,88 @@
+
+<div style="width: 100%;
+margin: 0;
+box-sizing: border-box;
+padding: 0 20px;">
+    <div fxLayout="column"  fxLayoutGap="25px" >
+        <div>
+                <!-- <mat-form-field>
+                    <input matInput placeholder="Filter" (keyup)="filterDatasource($event)" />
+                </mat-form-field> -->
+        </div>
+        <div class="mat-elevation-z8 table-responsive">
+            <table mat-table [dataSource]="surveyDatasource" matSortActive="date" matSortDirection="desc" matSort style="width:100%">
+          
+              <!-- Position Column -->
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> DRAFT ID</th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+              </ng-container>
+
+              <!-- Position Column -->
+              <ng-container matColumnDef="surveyNo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> SURVEY NO </th>
+                <td mat-cell *matCellDef="let element"> {{element.surveyNo}} </td>
+              </ng-container>
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="nhNo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> HIGHWAY NO </th>
+                <td mat-cell *matCellDef="let element"> {{element.highwayType}} {{element.highwayNo}} </td>
+              </ng-container>
+          
+              <!-- Weight Column -->
+              <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> DATE </th>
+                <td mat-cell *matCellDef="let element"> {{element.date | date: 'dd/MM/yyyy'}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef> STATUS </th>
+                <td mat-cell *matCellDef="let row">
+                    <!-- <button type="button" mat-icon-button *ngIf="!row.isDraft"
+                     (click)="handleViewSurvey(row, $event)">
+                        <mat-icon>visibility</mat-icon>
+                    </button> -->
+                    <span *ngIf="!row.isDraft">COMPLETED</span>
+                    <span *ngIf="row.isDraft">DRAFT</span>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="download">
+                <th mat-header-cell *matHeaderCellDef> DOWNLOAD </th>
+                <td mat-cell *matCellDef="let row">
+                    <button type="button" mat-icon-button *ngIf="!row.isDraft && row.payment_status"
+                     (click)="handleDownloadSurvey(row, $event)">
+                        <mat-icon>download</mat-icon>
+                    </button>
+                    <button type="button" mat-icon-button *ngIf="row.isDraft || !row.payment_status"
+                       (click)="handleEditSurvey(row, $event)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+              </ng-container>
+
+              <!-- <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef> EDIT </th>
+                <td mat-cell *matCellDef="let row">
+                    <button type="button" mat-icon-button *ngIf="row.isDraft"
+                       (click)="handleEditSurvey(row, $event)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+              </ng-container> -->
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <div *ngIf="!surveyDatasource.data.length" style="text-align:center; padding: 5px;">
+                No Records Found.
+            </div> 
+
+            <mat-paginator [pageSizeOptions]="[10, 50, 100]"
+                           showFirstLastButtons>
+            </mat-paginator>
+          </div>
+    </div>
+</div>

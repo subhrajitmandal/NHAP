@@ -1,0 +1,73 @@
+<h1 mat-dialog-title>
+    <!-- {{ parentData?.section }} -->
+    Add Balance
+</h1>
+<form name="addUsersForm" [formGroup]="addUsersForm" 
+    (ngSubmit)="addUsers()" novalidate autocomplete="off">
+    
+    <div mat-dialog-content>
+
+        <ng-container *ngIf="parentData?.section.indexOf('WALLET') === -1">
+            <mat-form-field appearance="fill">
+                <mat-label> First Name </mat-label>
+                <input matInput type="text" formControlName="firstName" cdkFocusInitial>
+                <mat-error *ngIf="!addUsersForm?.get('firstName')?.valid">
+                    Please enter correct first name
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label> Last Name </mat-label>
+                <input matInput type="text" formControlName="lastName">
+                <mat-error *ngIf="!addUsersForm?.get('lastName')?.valid">
+                    Please enter correct last name
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Mobile No</mat-label>
+                <input matInput type="text" formControlName="phone">
+                <mat-error *ngIf="!addUsersForm?.get('phone')?.valid">
+                    Please enter correct mobile number
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" formControlName="email">
+                <mat-error *ngIf="!addUsersForm?.get('email')?.valid">
+                    Please enter correct email
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+                <mat-error *ngIf="!addUsersForm?.get('password')?.valid">
+                    Please enter correct password
+                </mat-error>
+            </mat-form-field>
+
+        </ng-container>
+
+        <ng-container *ngIf="parentData?.section.indexOf('WALLET') !== -1 || parentData?.section.indexOf('ADD') !== -1">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Wallet Balance</mat-label>
+                <input matInput type="text" formControlName="wallet">
+                <mat-error *ngIf="!addUsersForm?.get('wallet')?.valid">
+                    Please enter correct wallet balance
+                </mat-error>
+            </mat-form-field>
+
+        </ng-container>
+
+    </div>
+    <div mat-dialog-actions>
+        <button type="button" mat-raised-button mat-dialog-close> Cancel </button>
+
+        <button mat-raised-button type="submit" color="primary" [disabled]="!addUsersForm.valid"> 
+            Submit 
+        </button>
+    </div>
+</form>

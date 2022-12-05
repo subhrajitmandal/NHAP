@@ -1,0 +1,228 @@
+<div>
+
+    <!-- <div class="city">
+        <ng-container *ngIf="surveyDiagramData?.cityTowardsLeft">
+            <h1 class="cityTowardsLeft">
+                <mat-icon>arrow_back</mat-icon>
+                <span>{{surveyDiagramData?.cityTowardsLeft}}</span>
+            </h1>
+        </ng-container>
+
+        <ng-container *ngIf="surveyDiagramData?.cityTowardsRight">
+            <h1 class="cityTowardsRight">
+                <span>{{surveyDiagramData?.cityTowardsRight}}</span>
+                <mat-icon>arrow_forward</mat-icon>
+            </h1>
+        </ng-container>
+    </div> -->
+
+    <div class="upCont">{{surveyDiagramData?.cityTowardsLeft}}</div>
+
+    <div class="downCont">{{surveyDiagramData?.cityTowardsRight}}</div>
+
+    <div class="midCont" #scrollMe [scrollTop]="scrollMe.scrollHeight/3 + 15">
+        <div class="editBox">
+
+            <div class="dropContainer" [class.centerContent2]="enableDrag" cdkDropList id="map"
+                (cdkDropListDropped)="drop($event)" [cdkDropListData]="uploadImage"
+                [cdkDropListConnectedTo]="['images']">
+
+
+                <div cdkDrag *ngFor="let uploadIcon of uploadImage; let iconIndex = index">
+
+                    <img *ngIf="diagramArr[iconIndex].imagePos===0"
+                        [ngStyle]="{'top.px': 600 - diagramArr[iconIndex].imageDistance/2, 'transform': diagramArr[iconIndex]?.imageMargin === 125 ? 'rotateY(0deg)':'rotateY(180deg)','margin-left.px':diagramArr[iconIndex]?.imageMargin}"
+                        [ngClass]="['droppedRoadComponents', uploadIcon.toLowerCase()]"
+                        src="assets/Images/{{ uploadIcon }}.png">
+
+                    <img *ngIf="diagramArr[iconIndex].imagePos===1"
+                        [ngStyle]="{'top.px': 600 + diagramArr[iconIndex].imageDistance/2, 'transform': diagramArr[iconIndex]?.imageMargin === 125? 'rotateY(0deg)':'rotateY(180deg)','margin-left.px':diagramArr[iconIndex].imageMargin?diagramArr[iconIndex].imageMargin:0}"
+                        [ngClass]="['droppedRoadComponents', uploadIcon.toLowerCase()]"
+                        src="assets/Images/{{ uploadIcon }}.png">
+
+                    <!-- <p style="color:red">{{diagramArr[iconIndex] | json}}</p>
+            <p>{{diagramArr[iconIndex]?.imageMargin}}</p> --->
+                    <!-- <h1 *ngIf="diagramArr[iconIndex].imagePos==1" style="color:green">{{350+diagramArr[iconIndex].imageDistance/2}}</h1> -->
+                </div>
+
+
+            </div>
+
+
+            <!-- <img src="assets/Images/ServiceRoad.png" alt="ServiceRoad"> -->
+            <div class="serviceRoad" *ngIf="surveyDiagramData?.serviceRoad === '1'"
+                style="background-image: url('/assets/Images/ServiceRoad.png');">
+
+            </div>
+            <!-- Road Diagram -->
+            <img class="road" *ngIf="surveyDiagramData?.roadType === '2'; else singleRoad" alt="DoubleCarraigeRoad"
+                src="assets/Images/DoubleCarraigeRoad.png">
+            <ng-template #singleRoad>
+                <img class="road" alt="SingleCarraigeRoad" src="assets/Images/SingleCarraigeRoad.png">
+            </ng-template>
+
+            <!-- NH Number -->
+            <div *ngIf="surveyDiagramData?.highwayNo">
+                <h1 class="NhText">{{surveyDiagramData?.highwayType}} {{surveyDiagramData?.highwayNo}}</h1>
+            </div>
+
+            <!-- KM Stone1 -->
+            <div class="KMStone1" *ngIf="surveyDiagramData?.nearestStoneNo1 !== 0"
+                [ngStyle]="{'top.px': KMStone1UIDistance}">
+                {{ diagramForm.get('KMStone1')?.value }}
+            </div>
+
+            <!-- KM Stone2 -->
+            <div class="KMStone2" *ngIf="surveyDiagramData?.nearestStoneNo1 !== 0"
+                [ngStyle]="{'top.px': KMStone2UIDistance}">
+                {{ diagramForm.get('KMStone2')?.value }}
+            </div>
+
+            <!-- Property -->
+            <div class="property">
+                <ng-container *ngIf="surveyDiagramData?.plotWidth !== 0">
+                    {{surveyDiagramData?.plotWidth}}
+                </ng-container>
+
+                <ng-container *ngIf="surveyDiagramData?.plotDepth !== 0">
+                    X {{surveyDiagramData?.plotDepth}} mtrs
+                </ng-container>
+
+                <div class="plotPlacement1" style="display: none;"
+                    *ngIf=" surveyDiagramData?.nearestStoneNo1 !== 0
+                            && surveyDiagramData?.nearestStoneNo2 !== 0
+                            && surveyDiagramData?.distanceFromPlot1 !== 0 
+                            && surveyDiagramData?.distanceFromPlot2 !== 0">
+                    <p class="plotPlacementCont1">{{ diagramForm.get('plotChainageNumber')?.value }}:{{diagramForm.get('plotPlacementA')?.value}} {{diagramForm.get('plotSide')?.value}}</p>
+                </div>
+                <div class="plotPlacement2" style="display: none;"
+                    *ngIf=" surveyDiagramData?.nearestStoneNo1 !== 0 
+                            && surveyDiagramData?.nearestStoneNo2 !== 0 
+                            && surveyDiagramData?.distanceFromPlot1 !== 0 
+                            && surveyDiagramData?.distanceFromPlot2 !== 0 ">
+                    <p class="plotPlacementCont2">{{ diagramForm.get('plotChainageNumber')?.value }}:{{diagramForm.get('plotPlacementB')?.value}} {{diagramForm.get('plotSide')?.value}}</p>
+                </div>
+            </div>
+
+
+            <!-- Chainage Left -->
+
+            <ul class="chainage" [ngStyle]="{'top.px': topUIDistance - 520, 'height.px': 520}"
+                *ngIf=" surveyDiagramData?.nearestStoneNo1 !== 0 
+                        && surveyDiagramData?.nearestStoneNo2 !== 0 
+                        && surveyDiagramData?.distanceFromPlot1 !== 0 
+                        && surveyDiagramData?.distanceFromPlot2 !== 0 ">
+
+                <ng-container *ngIf="chainageOrder==1; else condition2">
+                    <li *ngFor="let number of numbersAB">
+                        <p>{{ diagramForm.get('plotChainageNumber')?.value - 1}}:{{number*100}}</p>
+                    </li>
+                </ng-container>
+                <ng-template #condition2>
+                    <li *ngFor="let number of numbersAB">
+                        <p>{{ diagramForm.get('plotChainageNumber')?.value + 1}}:{{900-number*100}}</p>
+                    </li>
+                </ng-template>
+
+            </ul>
+
+            <ul class="chainage" [ngStyle]="{'top.px': topUIDistance, 'height.px': 520}"
+                *ngIf=" surveyDiagramData?.nearestStoneNo1 !== 0 
+                        && surveyDiagramData?.nearestStoneNo2 !== 0 
+                        && surveyDiagramData?.distanceFromPlot1 !== 0 
+                        && surveyDiagramData?.distanceFromPlot2 !== 0 ">
+
+                <ng-container *ngIf="chainageOrder==1; else condition2">
+                    <li *ngFor="let number of numbersAB">
+                        <p>{{ diagramForm.get('plotChainageNumber')?.value}}:{{number*100}}</p>
+                    </li>
+                </ng-container>
+                <ng-template #condition2>
+                    <li *ngFor="let number of numbersAB">
+                        <p>{{ diagramForm.get('plotChainageNumber')?.value}}:{{900-number*100}}</p>
+                    </li>
+                </ng-template>
+
+            </ul>
+
+            <ul class="chainage" [ngStyle]="{'top.px': topUIDistance + 520, 'height.px': 520}"
+                *ngIf=" surveyDiagramData?.nearestStoneNo1 !== 0 
+                        && surveyDiagramData?.nearestStoneNo2 !== 0 
+                        && surveyDiagramData?.distanceFromPlot1 !== 0 
+                        && surveyDiagramData?.distanceFromPlot2 !== 0 ">
+
+                <ng-container *ngIf="chainageOrder==1; else condition2">
+                    <li *ngFor="let number of numbersAB">
+                        <p>{{ diagramForm.get('plotChainageNumber')?.value + 1}}:{{number*100}}</p>
+                    </li>
+                </ng-container>
+                <ng-template #condition2>
+                    <li *ngFor="let number of numbersAB">
+                        <p>{{ diagramForm.get('plotChainageNumber')?.value - 1}}:{{900-number*100}}</p>
+                    </li>
+                </ng-template>
+
+            </ul>
+
+            <!-- Chainage Right -->
+
+            <ul class="chainage2" [ngStyle]="{'top.px': topUIDistance - 520, 'height.px': 520}"
+                *ngIf=" surveyDiagramData?.nearestStoneNo1 !== 0 
+                        && surveyDiagramData?.nearestStoneNo2 !== 0 
+                        && surveyDiagramData?.distanceFromPlot1 !== 0 
+                        && surveyDiagramData?.distanceFromPlot2 !== 0 ">
+
+                <ng-container *ngIf="chainageOrder==1; else condition2">
+                    <li *ngFor="let number of numbersAB">
+                        <p>{{ diagramForm.get('plotChainageNumber')?.value - 1}}:{{number*100}}</p>
+                    </li>
+                </ng-container>
+                <ng-template #condition2>
+                    <li *ngFor="let number of numbersAB">
+                        <p>{{ diagramForm.get('plotChainageNumber')?.value + 1}}:{{900-number*100}}</p>
+                    </li>
+                </ng-template>
+
+            </ul>
+
+            <ul class="chainage2" [ngStyle]="{'top.px': topUIDistance, 'height.px': 520}"
+                *ngIf=" surveyDiagramData?.nearestStoneNo1 !== 0 
+                        && surveyDiagramData?.nearestStoneNo2 !== 0 
+                        && surveyDiagramData?.distanceFromPlot1 !== 0 
+                        && surveyDiagramData?.distanceFromPlot2 !== 0 ">
+
+                <ng-container *ngIf="chainageOrder==1; else condition2">
+                    <li *ngFor="let number of numbersAB">
+                        <p>{{ diagramForm.get('plotChainageNumber')?.value}}:{{number*100}}</p>
+                    </li>
+                </ng-container>
+                <ng-template #condition2>
+                    <li *ngFor="let number of numbersAB">
+                        <p>{{ diagramForm.get('plotChainageNumber')?.value}}:{{900-number*100}}</p>
+                    </li>
+                </ng-template>
+
+            </ul>
+
+            <ul class="chainage2" [ngStyle]="{'top.px': topUIDistance + 520, 'height.px': 520}"
+                *ngIf=" surveyDiagramData?.nearestStoneNo1 !== 0 
+                        && surveyDiagramData?.nearestStoneNo2 !== 0 
+                        && surveyDiagramData?.distanceFromPlot1 !== 0 
+                        && surveyDiagramData?.distanceFromPlot2 !== 0 ">
+
+                <ng-container *ngIf="chainageOrder==1; else condition2">
+                    <li *ngFor="let number of numbersAB">
+                        <p>{{ diagramForm.get('plotChainageNumber')?.value + 1}}:{{number*100}}</p>
+                    </li>
+                </ng-container>
+                <ng-template #condition2>
+                    <li *ngFor="let number of numbersAB">
+                        <p>{{ diagramForm.get('plotChainageNumber')?.value - 1}}:{{900-number*100}}</p>
+                    </li>
+                </ng-template>
+
+            </ul>
+
+        </div>
+    </div>
+</div>

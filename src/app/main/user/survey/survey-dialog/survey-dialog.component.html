@@ -1,0 +1,103 @@
+
+<h1 mat-dialog-title>
+    {{ data.formType.replace('roadComponents', '').replace('droppedRoadComponents', '').replace('ng-star-inserted', '')
+        | uppercase}}
+</h1>
+
+<div mat-dialog-content>
+    <form name="additionalInformationForm" [formGroup]="additionalInformationForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Distance from property</mat-label>
+            <input matInput type="number" formControlName="propertyDistance">
+            <mat-error *ngIf="!additionalInformationForm?.get('propertyDistance')?.valid">
+                Please enter correct property distance
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Position from property</mat-label>
+            <mat-select formControlName="propertyPosition">
+                <mat-option *ngFor="let cityOption of cityOptions; index as i" [value]=i>
+                    Towards {{cityOption}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="!additionalInformationForm?.get('propertyPosition')?.valid">
+                Please enter correct property Position
+            </mat-error>
+        </mat-form-field>
+
+        <!-- If intersection then additional form fields are needed else hide for all other selections -->
+        <div [style.display]="data.formType.indexOf('bridge') === -1 &&
+                                data.formType.indexOf('checkbarrier') === -1 && 
+                                data.formType.indexOf('culvert') === -1 &&
+                                data.formType.indexOf('gradeseperator') === -1 && 
+                                data.formType.indexOf('railwaylevelcrossing') === -1 && 
+                                data.formType.indexOf('tollplaza') === -1 &&
+                                data.formType.indexOf('mediangap') === -1  ? 'block': 'none'">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Orientation from property</mat-label>
+                <mat-select formControlName="propertyOrientation">
+                    <!-- <mat-option [value]=0>None</mat-option> -->
+                    <mat-option [value]=1>Same Side</mat-option>
+                    <mat-option [value]=2>Opposite Side</mat-option>
+                </mat-select>
+                <mat-error *ngIf="!additionalInformationForm?.get('propertyOrientation')?.valid">
+                    Please enter correct property orientation
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div [style.display]="data.formType.indexOf('bridge') === -1 &&
+                                data.formType.indexOf('checkbarrier') === -1 && 
+                                data.formType.indexOf('culvert') === -1 &&
+                                data.formType.indexOf('gradeseperator') === -1 && 
+                                data.formType.indexOf('railwaylevelcrossing') === -1 && 
+                                data.formType.indexOf('tollplaza') === -1 &&
+                                data.formType.indexOf('fuelstation') === -1 &&
+                                data.formType.indexOf('school') === -1 &&
+                                data.formType.indexOf('shop') === -1 &&
+                                data.formType.indexOf('mediangap') === -1 &&
+                                data.formType.indexOf('serviceroad') === -1 &&
+                                data.formType.indexOf('trucklaybay') === -1 ? 'block' : 'none'">
+
+            <mat-form-field appearance="fill">
+                <mat-label> Is Width the of road more than 3m</mat-label>
+                <!-- <input matInput type="number" formControlName="propertyWidth"> -->
+                <mat-select formControlName="propertyWidth">
+                    <!-- <mat-option [value]=0>None</mat-option> -->
+                    <mat-option value=0>No</mat-option>
+                    <mat-option value=1>Yes</mat-option>
+                </mat-select>
+                <mat-error *ngIf="!additionalInformationForm?.get('propertyWidth')?.valid">
+                    Please select correct option
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div [style.display]="data.formType.indexOf('intersection') !== -1  ? 'block': 'none'">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Is length of the road more than 300m</mat-label>
+                <mat-select formControlName="roadLength">
+                    <!-- <mat-option [value]=0>None</mat-option> -->
+                    <mat-option value=0>No</mat-option>
+                    <mat-option value=1>Yes</mat-option>
+                </mat-select>
+                <mat-error *ngIf="!additionalInformationForm?.get('roadLength')?.valid">
+                    Please select correct option
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button [mat-dialog-close]="{status: 'cancel'}">Cancel</button>
+
+    <button mat-raised-button color="primary" (click)="closeDialog('ok')"
+        [disabled]="!additionalInformationForm.valid" cdkFocusInitial>Ok</button>
+        
+    <button type="button" mat-raised-button color="warn" (click)="closeDialog('delete')"
+        [style.visibility]="data.isUpdateImage ? 'visible' : 'hidden'">Delete</button>
+</div>

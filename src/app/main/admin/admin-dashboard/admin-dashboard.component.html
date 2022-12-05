@@ -1,0 +1,89 @@
+<div class="dashboard-content">
+
+    <div fxLayout="row"  fxLayoutGap="40px" fxLayoutAlign="center">
+        <div>
+            <mat-card class="mat-elevation-z8">
+                <mat-card-content>
+                    {{ dashboardSummary.users }}
+                </mat-card-content>
+                <mat-card-footer>
+                    Users
+                </mat-card-footer>
+            </mat-card>
+        </div>
+        <div>
+            <mat-card class="mat-elevation-z8">
+                <mat-card-content>
+                    {{ dashboardSummary.surveys }}
+                </mat-card-content>
+                <mat-card-footer>
+                    Surveys
+                </mat-card-footer>
+            </mat-card>
+        </div>
+        <div>
+            <mat-card class="mat-elevation-z8">
+                <mat-card-content>
+                    {{ dashboardSummary.consultants }}
+                </mat-card-content>
+                <mat-card-footer>
+                    Consultants
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="mat-elevation-z8 table-content">
+        <table mat-table [dataSource]="surveyDatasource" matSortActive="date" matSortDirection="desc" matSort>
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> DRAFT ID</th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="surveyNo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> SURVEY NO </th>
+              <td mat-cell *matCellDef="let element"> {{element.surveyNo}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="highwayNo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> NH NO </th>
+              <td mat-cell *matCellDef="let element"> {{element.highwayNo}} </td>
+            </ng-container>
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="username">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> USERNAME </th>
+              <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> STATUS </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+              <th mat-header-cell *matHeaderCellDef> VIEW </th>
+              <td mat-cell *matCellDef="let row">
+                  <button type="button" mat-icon-button (click)="handleViewSurvey(row, $event)">
+                      <mat-icon>visibility</mat-icon>
+                  </button>
+              </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+          <div *ngIf="!surveyDatasource.data.length" class="no-records-status">
+              No Records Found.
+          </div> 
+
+          <mat-paginator [pageSizeOptions]="[10, 50, 100]"
+                         showFirstLastButtons>
+          </mat-paginator>
+    </div>
+</div>

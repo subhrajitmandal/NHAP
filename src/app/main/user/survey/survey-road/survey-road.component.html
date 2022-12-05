@@ -1,0 +1,182 @@
+<mat-card>
+    <div fxLayout="row" fxLayoutGap="10px">
+        <!-- Form -->
+        <div class="leftSection">
+            <form name="surveyRoadForm" [formGroup]="surveyRoadForm" novalidate autocomplete="off">
+                <div fxlayout="column" class="form-width">
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Road Type</mat-label>
+                            <mat-select formControlName="roadType" required>
+                                <mat-option value="-1">Select</mat-option>
+                                <mat-option value="1">Single carriageway</mat-option>
+                                <mat-option value="2">Double carriageway</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="!surveyRoadForm?.get('roadType')?.valid">
+                                Please enter correct road type
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Location Type</mat-label>
+                            <mat-select formControlName="locationType">
+                                <mat-option value="-1">Select</mat-option>
+                                <mat-option value="1">Urban</mat-option>
+                                <mat-option value="2">Rural</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="!surveyRoadForm?.get('locationType')?.valid">
+                                Please enter correct location type
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <label>Service Road</label> <br />
+                        <mat-radio-group name="serviceRoad" formControlName="serviceRoad">
+                            <mat-radio-button value="0">No</mat-radio-button>
+                            <mat-radio-button value="1">Yes</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+
+                    <div *ngIf="surveyRoadForm?.get('serviceRoad')?.value === '1'">
+                        <mat-form-field>
+                            <mat-label>Service Road Width</mat-label>
+                            <input matInput type="number" formControlName="serviceRoadWidth">
+                            <mat-error *ngIf="!surveyRoadForm?.get('serviceRoadWidth')?.valid">
+                                Please enter correct service road width
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>Plot Size in Mtrs</div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Width Along NH Row</mat-label>
+                            <input matInput formControlName="plotWidth" required>
+                            <mat-error *ngIf="!surveyRoadForm?.get('plotWidth')?.valid">
+                                Please enter correct plot width.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Depth From NH Row</mat-label>
+                            <input matInput formControlName="plotDepth" required>
+                            <mat-error *ngIf="!surveyRoadForm?.get('plotDepth')?.valid">
+                                Please enter correct plot depth.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <!-- <div class="file-div">
+                        <mat-label>Upload Image (Front Side)</mat-label><br />
+
+                        <div class="display-none">
+                            <input formControlName="frontImage" type="file" #frontImage
+                                (click)="frontImage.value = null" (change)="attachImage($event, 'frontImage')">
+                        </div>
+
+                        <span class="pr-10">{{ surveyRoadForm.get('frontImage')?.valid ? uploadFiles['frontImage']?.name
+                            : 'No file selected' }}</span>
+
+                        <button mat-mini-fab type="button" (click)="frontImage.click()">
+                            <mat-icon>attach_file</mat-icon>
+                        </button>
+
+                        <mat-error
+                            *ngIf="surveyRoadForm.get('frontImage').dirty && surveyRoadForm.get('frontImage')?.hasError('required')">
+                            Please enter image.
+                        </mat-error>
+                        <mat-error
+                            *ngIf="surveyRoadForm.get('frontImage').dirty && surveyRoadForm.get('frontImage')?.hasError('maxFileSize')">
+                            Please enter correct image under 1 MB.
+                        </mat-error>
+                        <mat-error
+                            *ngIf="surveyRoadForm.get('frontImage').dirty && surveyRoadForm.get('frontImage')?.hasError('fileExtension')">
+                            Please enter correct image type.
+                        </mat-error>
+                    </div> -->
+
+                    <div class="file-div">
+                        <mat-label>Upload Image (Left Side)</mat-label><br />
+
+                        <div class="display-none">
+                            <input formControlName="roadLeftPhoto" type="file" #roadLeftPhoto (click)="roadLeftPhoto.value = null"
+                                (change)="attachImage($event, 'roadLeftPhoto')">
+                        </div>
+
+                        <span class="pr-10">{{ surveyRoadForm?.get('roadLeftPhoto')?.valid ? uploadFiles['roadLeftPhoto']?.name
+                            : 'No file selected' }}</span>
+
+                        <button mat-mini-fab type="button" (click)="roadLeftPhoto.click()">
+                            <mat-icon>attach_file</mat-icon>
+                        </button>
+
+                        <mat-error
+                            *ngIf="surveyRoadForm.get('roadLeftPhoto').dirty && surveyRoadForm.get('roadLeftPhoto')?.hasError('required')">
+                            Please enter image.
+                        </mat-error>
+                        <mat-error
+                            *ngIf="surveyRoadForm.get('roadLeftPhoto').dirty && surveyRoadForm.get('roadLeftPhoto')?.hasError('maxFileSize')">
+                            Please enter correct image under 1 MB.
+                        </mat-error>
+                        <mat-error
+                            *ngIf="surveyRoadForm.get('roadLeftPhoto').dirty && surveyRoadForm.get('roadLeftPhoto')?.hasError('fileExtension')">
+                            Please enter correct image type.
+                        </mat-error>
+                    </div>
+
+                    <div class="file-div">
+                        <mat-label>Upload Image (Right Side)</mat-label><br />
+
+                        <div class="display-none">
+                            <input formControlName="roadRightPhoto" type="file" #roadRightPhoto
+                                (click)="roadRightPhoto.value = null" (change)="attachImage($event, 'roadRightPhoto')">
+                        </div>
+
+                        <span class="pr-10">{{ surveyRoadForm?.get('roadRightPhoto')?.valid ?
+                            uploadFiles['roadRightPhoto']?.name : 'No file selected' }}</span>
+
+                        <button mat-mini-fab type="button" (click)="roadRightPhoto.click()">
+                            <mat-icon>attach_file</mat-icon>
+                        </button>
+
+                        <mat-error
+                            *ngIf="surveyRoadForm.get('roadRightPhoto').dirty && surveyRoadForm.get('roadRightPhoto')?.hasError('required')">
+                            Please enter image.
+                        </mat-error>
+                        <mat-error
+                            *ngIf="surveyRoadForm.get('roadRightPhoto').dirty && surveyRoadForm.get('roadRightPhoto')?.hasError('maxFileSize')">
+                            Please enter correct image under 1 MB.
+                        </mat-error>
+                        <mat-error
+                            *ngIf="surveyRoadForm.get('roadRightPhoto').dirty && surveyRoadForm.get('roadRightPhoto')?.hasError('fileExtension')">
+                            Please enter correct image type.
+                        </mat-error>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Design -->
+        <div class="rightSection" #scrollMe [scrollTop]="scrollMe.scrollHeight/4 + 30">
+            <app-survey-diagram #diagram></app-survey-diagram>
+        </div>
+    </div>
+
+</mat-card>
+
+<!-- action buttons -->
+<mat-card-actions>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <button mat-raised-button color="accent" type="button" matStepperPrevious>Back & Edit</button>
+
+        <button mat-raised-button color="primary" type="button" [disabled]="surveyRoadForm.invalid"
+            (click)="submitSurveyRoad()" matStepperNext>Save & Next
+        </button>
+    </div>
+</mat-card-actions>

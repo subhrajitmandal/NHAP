@@ -1,0 +1,50 @@
+<mat-toolbar color="primary">
+  <h1 [routerLink]="'../'">NHAP</h1>
+  <span class="flex-right"></span>
+
+  <span *ngIf="isAdmin"> <h3>{{ username }}</h3></span>
+
+  <div *ngIf="showHideButton">
+    <button mat-icon-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <mat-menu #userMenu>
+
+      <div>
+        <h3>{{ username }}</h3>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <button mat-menu-item [routerLink]="['/user/profile']">
+        <mat-icon color="primary">account_circle</mat-icon>
+        <span>My Profile</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/user/surveylist']">
+        <mat-icon color="primary">description</mat-icon>
+        <span>My Survey</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/user/coin']">
+        <mat-icon color="accent">wallet</mat-icon>
+        <span>My Wallet</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon color="warn">logout</mat-icon>
+        <span>Log out</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
+<mat-toolbar style="height:40px;" *ngIf="showHidePageHeader">
+
+  <button *ngIf="section !== 'Dashboard' && isAdmin === false" mat-icon-button aria-label="go back" [routerLink]="'../'">
+    <mat-icon>navigate_before</mat-icon>
+  </button>
+
+  <span class="flex-center"></span>
+  <p>
+    {{ section }}
+  </p>
+</mat-toolbar>

@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+}
+
+.header{
+    border: 5px solid #222;
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.payment-options{
+    border: 5px solid #222;
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.walletPay{
+    margin-bottom: 20px;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.razorPay{
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.surveyId{
+    margin-bottom: 20px;
+}
+
+.amount{
+    display: block;
+}
+
+.amount span{
+    font-weight: bold;
+    font-size: 30px;
+    color: #4527a0;
+}
+
+.transactionSummary{
+    text-align: center;
+}

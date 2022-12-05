@@ -1,0 +1,62 @@
+<app-toolbar [section]="''" [showHideButton]="false" [showHidePageHeader]="false"></app-toolbar>
+
+<div class="contentMain">
+    <div class="loginHeader" fxLayout="row" fxLayoutAlign="center center">
+        <h2>Login</h2>
+    </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="end" class="signUpLink">
+    <h3>Don't have an account? Sign up here
+        <a [routerLink]="'../signup'" mat-icon-button color="primary">
+            <mat-icon>app_registration</mat-icon>
+        </a>
+    </h3>
+</div>
+
+<br/>
+
+<mat-card class="content">
+    <mat-card-content>
+        
+        <form name="loginForm" [formGroup]="loginForm"  (ngSubmit)="submitLoginForm()" novalidate>
+
+            <div *ngIf="serverError.length" class="error"> {{ serverError }} </div>
+
+            <div>
+                <!-- Email Id starts -->
+                <div>
+                    <mat-form-field>
+                        <mat-label>Email Id / Phone</mat-label>
+                        <input matInput formControlName="emailId" (focus)="removeServerError()">
+                        <mat-error *ngIf="!loginForm?.get('emailId')?.valid">
+                            Please enter correct email id
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!-- Email Id ends -->
+            
+                <!-- Password starts -->
+                <div>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName="password" (focus)="removeServerError()" [type]="hide ? 'password' : 'text'">
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="!loginForm?.get('password')?.valid">
+                            Please enter correct password
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!-- Password ends -->
+            
+                <div>
+                    <button type="button" mat-button (click)="openForgotPassDialog()">Forgot Password?</button>
+                    <button type="submit" class="actionButton" mat-raised-button color="primary" [disabled]="loginForm?.invalid">
+                        Submit
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

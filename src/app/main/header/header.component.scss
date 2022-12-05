@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+.flex-right {
+    flex: 1 1 auto;
+}
+
+.m-1 {
+    margin: 1%;
+}
+
+.mat-toolbar {
+    background-color: rgba(91, 51, 149, 0.7) !important;
+    position: fixed;
+    height: 80px;
+    left: 0;
+    top: 0;
+    z-index: 999;
+}
+
+.mat-toolbar a {
+    text-decoration: none;
+    color: #fff;
+    line-height: 1;
+    // text-transform: uppercase;
+}
+
+.mat-toolbar .menuHeaderText {
+    font-size: 40px;
+    color: #fff;
+}
+
+.mat-toolbar button{
+    font-size: 18px;
+}
+
+.homeMain {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    // background-image: url(../../../assets/bg2.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.overlay {
+    background-image: url(../.././../assets/bg2.jpg);
+    width: 100%;
+    height: auto;
+    height: 300px;
+    background-size: cover;
+}
+
+.overlayCont{
+    background-color: transparent;  
+    background-image: linear-gradient(160deg, #7966E0 34%, #CD4D87 100%);
+    opacity: 0.87;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+    height: 100%;
+}
+
+.overlayCont h1{
+    font-size: 40px;
+    text-align: center;
+    color: #fff;
+    padding-top: 170px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.overlayCont h2{
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+}

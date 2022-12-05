@@ -1,0 +1,115 @@
+<app-toolbar section="''" [showHideButton]="false" [showHidePageHeader]="false"></app-toolbar>
+
+<div class="contentMain">
+    <div class="loginHeader" fxLayout="row" fxLayoutAlign="center center">
+        <h2>Sign Up</h2>
+    </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="end" class="loginLink">
+    <h3>Already have an account? Log in here
+        <a [routerLink]="'../login'" mat-icon-button color="primary">
+            <mat-icon>login</mat-icon>
+        </a>
+    </h3>
+</div>
+
+<br/>
+
+<!-- <div *ngIf="serverError.length" class="error"> {{ serverError }} </div> -->
+
+<mat-card class="content">
+    <form name="signUpForm" [formGroup]="signUpForm" (ngSubmit)="openSignupDialog()" novalidate autocomplete="off">
+    <mat-card-content>
+            <div>
+                <!-- First Name starts -->
+                <div>
+                    <mat-form-field>
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="firstName" (focus)="removeServerError()">
+                        <mat-error *ngIf="!signUpForm.get('firstName')?.valid">
+                            Please enter correct first name
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!-- First Name ends -->
+
+                <!-- Last Name starts -->
+                <div>
+                    <mat-form-field>
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="lastName" (focus)="removeServerError()">
+                        <mat-error *ngIf="!signUpForm.get('lastName')?.valid">
+                            Please enter correct last name
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!-- Last Name ends -->
+
+                <!-- Mobile start -->
+                <div>
+                    <mat-form-field>
+                        <mat-label>Mobile(Max 10 Digits)</mat-label>
+                        <input matInput formControlName="mobile" (focus)="removeServerError()">
+                        <!-- <mat-hint align="end" *ngIf="signUpForm.get('mobile')?.dirty && signUpForm.get('mobile')?.valid">
+                            <a (click)="sendMobileOtp()">{{ mobileOtpButtonName }}</a>
+                        </mat-hint> -->
+                        <mat-error *ngIf="!signUpForm.get('mobile')?.valid">
+                            Please enter correct mobile number
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!-- Mobile ends -->
+
+                <!-- Email id starts -->
+                <div>
+                    <mat-form-field>
+                        <mat-label>Email Id</mat-label>
+                        <input matInput formControlName="email" (focus)="removeServerError()">
+                        <!-- <mat-hint align="end" *ngIf="signUpForm.get('email')?.dirty && signUpForm.get('email')?.valid">
+                            <a (click)="sendEmailOtp()">{{ emailOtpButtonName }}</a>
+                        </mat-hint> -->
+                        <mat-error *ngIf="!signUpForm.get('email')?.valid">
+                            Please enter correct email id
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!-- Email id ends -->
+
+                <!-- password starts -->
+                <div>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password" (focus)="removeServerError()" [type]="hide ? 'password' : 'text'" placeholder="Password" required>
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="!signUpForm.get('password')?.valid">
+                            Please enter correct password
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!-- password ends -->
+
+                <!-- Retype password starts -->
+                <div>
+                    <mat-form-field>
+                        <mat-label>Confirm Password</mat-label>
+                        <input type="password" matInput formControlName="confirmPassword" (focus)="removeServerError()" required
+                               [errorStateMatcher]="crossErrorMatcher">
+                        <mat-error *ngIf="signUpForm.errors?.mismatch">
+                            Please enter matched password
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!-- Retype password ends -->
+
+            </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="actionButton" mat-raised-button color="primary"
+                [disabled]="signUpForm.invalid || serverError.length ? true : false">
+            Signup
+        </button>
+    </mat-card-actions>
+    </form>
+</mat-card>

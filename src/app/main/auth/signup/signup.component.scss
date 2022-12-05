@@ -1,0 +1,91 @@
+.container {
+    
+    a {
+        text-decoration: none;
+        font-weight: 900;
+        color: #dc143e;
+        font-size: 14px;
+        cursor: pointer;
+    }
+}
+
+.mat-form-field{
+    display: block;
+}
+
+.content{
+    margin: 15px;
+}
+
+.mat-form-field{
+    display: block;
+}
+
+// .contentMain{
+//     width: 100%;
+//     background-image: url(../../../../assets/bg3.jpg);
+//     height: 200px;
+//     position: relative;
+//     background-size: 150%;
+// }
+
+.contentMain{
+    width: 100%;
+    // background-image: url(../../../../assets/bg3.jpg);
+    height: 200px;
+    position: relative;
+    background-size: 150%;
+    background-color: transparent;
+    background-image: linear-gradient(160deg,#7966E0 34%,#CD4D87 100%);
+    opacity: .87;
+    transition: background .3s,border-radius .3s,opacity .3s;
+}
+
+// .contentMain::after{
+//     position: absolute;
+//     content: "";
+//     display: block;
+//     width: 100%;
+//     height: 100px;
+//     left: 0;
+//     background-color: #fff;
+//     border-radius: 50%;
+// }
+
+.loginHeader{
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-align: center;
+    height: 100%;
+}
+
+.loginHeader h2{
+    font-size: 55px;
+    line-height: 1;
+    margin: 0;
+}
+
+.actionButton{
+    width: 100%;
+    margin-top: 15px;
+}
+
+.error{
+    padding: 10px;
+    color: #dc143e;
+    font-weight: 400;
+}
+
+.enableOtpForm {
+    pointer-events: none;
+    background-color: rgb(224 224 224);
+}
+
+.loginLink {
+    margin-right: 15px;
+}
+
+.mat-card{
+    margin: 0 auto;
+    max-width: 400px;
+}

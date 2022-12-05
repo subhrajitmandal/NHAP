@@ -1,0 +1,71 @@
+
+<div class="mat-elevation-z8 survey-table-content">
+    <table mat-table [dataSource]="surveyDatasource" matSortActive="date" matSortDirection="desc" matSort>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> DRAFT ID</th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="surveyNo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> SURVEY ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.survey_id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="roadNo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ROAD NO </th>
+        <td mat-cell *matCellDef="let element"> {{element.highwayType}}{{element.highwayNo}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> DATE </th>
+        <td mat-cell *matCellDef="let element"> {{element.created_at | date: 'dd/MM/yyyy'}} </td>
+        </ng-container>
+
+        <!-- property Column -->
+        <ng-container matColumnDef="propertyType">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> PROPERTY TYPE </th>
+            <td mat-cell *matCellDef="let element"> <span *ngIf="element?.propertyType==1">Retail Outlet</span>
+                <span *ngIf="element?.propertyType==2">Private Property</span> </td>
+        </ng-container>
+
+        <!-- Username Column -->
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> USERNAME </th>
+            <td mat-cell *matCellDef="let element"> {{element.user.name}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </th>
+            <td mat-cell *matCellDef="let row">
+                <span *ngIf="!row?.is_draft">COMPLETED</span>
+                <span *ngIf="row?.is_draft">DRAFT</span>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="view">
+            <th mat-header-cell *matHeaderCellDef> VIEW </th>
+            <td mat-cell *matCellDef="let row">
+                <button type="button" mat-icon-button *ngIf="!row.isDraft"
+                        (click)="handleViewSurvey(row, $event)">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div *ngIf="!surveyDatasource.data.length" class="no-record-status">
+        No Records Found.
+    </div> 
+
+    <mat-paginator [pageSizeOptions]="[10, 50, 100]" showFirstLastButtons>
+    </mat-paginator>
+</div>

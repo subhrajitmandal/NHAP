@@ -1,0 +1,47 @@
+<mat-card style="padding: 0; box-shadow:none;">
+    <div *ngIf="!transactionComplete" style="display: block;">
+        <div fxLayout="column">
+            <div class="header">
+                <div class="surveyId">
+                    Survey Id: <span>{{ surveyId }}</span>
+                </div>
+                <div class="amount">
+                    Amount to be paid: <span>Rs 500</span>
+                </div>
+            </div>
+
+            <div class="payment-options">
+                <h1>Select an option to pay</h1>
+                <div class="walletPay">
+                    Wallet(Rs{{walletBalance}})
+                    <button type="button" mat-raised-button mat-button color="primary" [disabled]="!coinsExist" (click)="payViaWallet()">
+                        Pay Now
+                    </button>
+                </div>
+
+                <div class="razorPay">
+                    Razor pay: 
+                    <button type="button" mat-raised-button mat-button color="primary" (click)="payViaRazor()">
+                        Pay Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="transactionSummary" *ngIf="transactionComplete">
+        <h2>Transaction has been completed successfully. Please click below to download the survey.</h2>
+            <button mat-raised-button color="primary" style="background-color: #4caf50;" type="button" (click)="exportAsPDF()" matStepperNext><mat-icon>download</mat-icon> Download
+            </button>
+    </div>
+</mat-card>
+
+<!-- action buttons -->
+<mat-card-actions>
+    <div fxLayout="column" fxLayoutAlign="end end">
+
+        <button mat-raised-button color="primary" type="button"
+                (click)="navigateAway()">Exit Survey
+        </button>
+    </div>
+</mat-card-actions>

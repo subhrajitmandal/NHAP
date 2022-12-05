@@ -1,0 +1,158 @@
+<mat-card style="display: none;">
+    <div id="surveyData">
+        <!-- Form -->
+        <!-- <div class="leftSection1">
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Property Type</div>
+                <div fxFlex="50%">: {{surveyFormData?.propertyType==='1'? "petrol pump" : ""}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">NH No.</div>
+                <div fxFlex="50%">: {{surveyFormData?.highwayNo}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Plot No.</div>
+                <div fxFlex="50%">: {{surveyFormData?.plotNo}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Khata No.</div>
+                <div fxFlex="50%">: {{surveyFormData?.khataNo}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">City</div>
+                <div fxFlex="50%">: {{surveyFormData?.city}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">District</div>
+                <div fxFlex="50%">: {{surveyFormData?.district}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">State</div>
+                <div fxFlex="50%">: {{surveyFormData?.state}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Oil Company Name</div>
+                <div fxFlex="50%">: {{surveyFormData?.oilCompanyName}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">City Towards Left</div>
+                <div fxFlex="50%">: {{surveyFormData?.cityTowardsLeft}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">City Towards Right</div>
+                <div fxFlex="50%">: {{surveyFormData?.cityTowardsRight}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Coordinate of plot (Left Side)</div>
+                <div fxFlex="50%">: {{surveyFormData?.longLeft}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Coordinate of plot (Left Side)</div>
+                <div fxFlex="50%">: {{surveyFormData?.latLeft}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Coordinate of plot (Right Side)</div>
+                <div fxFlex="50%">: {{surveyFormData?.longRight}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Coordinate of plot (Right Side)</div>
+                <div fxFlex="50%">: {{surveyFormData?.latRight}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Road Type</div>
+                <div fxFlex="50%">: {{surveyFormData?.roadType}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Location Type</div>
+                <div fxFlex="50%">: {{surveyFormData?.locationType}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Service Road</div>
+                <div fxFlex="50%">: {{surveyFormData?.serviceRoad}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Service Road Width</div>
+                <div fxFlex="50%">: {{surveyFormData?.serviceRoadWidth}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Plot Width</div>
+                <div fxFlex="50%">: {{surveyFormData?.plotWidth}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Plot Depth</div>
+                <div fxFlex="50%">: {{surveyFormData?.plotDepth}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Nearest Stone No 1</div>
+                <div fxFlex="50%">: {{surveyFormData?.nearestStoneNo1}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Distance From Plot</div>
+                <div fxFlex="50%">: {{surveyFormData?.distanceFromPlot1}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Nearest Stone No 2</div>
+                <div fxFlex="50%">: {{surveyFormData?.nearestStoneNo2}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Distance From Plot</div>
+                <div fxFlex="50%">: {{surveyFormData?.distanceFromPlot2}}</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+                <div fxFlex="50%">Survey Diagram</div>
+                <div fxFlex="50%">: {{surveyFormData?.surveyDiagram}}{{surveyFormData?.roadLeftPhoto}}{{surveyFormData?.roadRightftPhoto}}</div>
+            </div>
+        </div> -->
+
+        <!-- <img style="max-width: 100%;" alt="{{surveyDiagram.src}}" src={{surveyDiagram.src}}> -->
+
+        <!-- Design -->
+        <!-- <div class="rightSection">
+            <app-survey-diagram></app-survey-diagram>
+        </div> -->
+
+    </div>
+</mat-card>
+
+<div class="dataSubmission">
+    <mat-icon>check_circle_outline</mat-icon>
+    <h2> All Data Submitted Successfully</h2>
+    <p>Please Pay INR 500 to Download the Report</p>
+    <!-- <button mat-raised-button color="primary" type="button" (click)="exportAsPDF();" matStepperNext>Pay & Download
+    </button> -->
+</div>
+
+
+<!-- action buttons -->
+<mat-card-actions>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <button mat-raised-button color="accent" type="button" matStepperPrevious>Back & Edit</button>
+
+        <button mat-raised-button color="primary" type="button" (click)="exportAsPDF();" matStepperNext>Pay & Download
+        </button>
+    </div>
+</mat-card-actions>

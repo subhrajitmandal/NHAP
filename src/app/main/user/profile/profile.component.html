@@ -1,0 +1,41 @@
+
+<div fxLayout="column" fxLayoutAlign="row center" fxLayoutGap="25px" style="width:100%">
+    <div>
+        <mat-icon style="font-size: 60px">account_circle</mat-icon>      
+    </div>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="row" fxLayoutGap="10px" style="width:100%">
+
+    <div class="profile-bg-color">
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" class="height-30-px" >
+            <div>
+                Name
+            </div>
+            <div>
+                {{ profileDetails.name }}
+            </div>
+        </div>
+    </div>
+    <div class="profile-bg-color">
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" class="height-30-px">
+            <div>
+                Mobile
+            </div>
+            <div>
+                {{ profileDetails.phone }}
+            </div>
+        </div>
+    </div>
+    <div class="profile-bg-color">
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" class="height-30-px">
+            <div>
+                Email
+            </div>
+            <div>
+                {{ profileDetails.email }}
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,45 @@
+
+<mat-stepper orientation="horizontal" class="disable-click" [linear]="true" #surveyStepper (selectionChange)="enableSelectedStepOnly($event)">
+    
+    <mat-step>
+        <ng-template matStepLabel>Step 1</ng-template>
+        <ng-template matStepContent>
+            <app-survey-property *ngIf="this.selectedIndex == 0"></app-survey-property>
+        </ng-template>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>Step 2</ng-template>
+        <ng-template matStepContent>
+            <app-survey-road *ngIf="this.selectedIndex == 1"></app-survey-road>
+        </ng-template>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>Step 3</ng-template>
+        <ng-template matStepContent>
+            <app-survey-stone *ngIf="this.selectedIndex == 2"></app-survey-stone>
+        </ng-template>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>Step 4</ng-template>
+        <ng-template matStepContent>
+            <app-survey-upload *ngIf="this.selectedIndex == 3"></app-survey-upload>
+        </ng-template>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>Submit</ng-template>
+        <ng-template matStepContent>
+            <app-survey-review *ngIf="this.selectedIndex == 4"></app-survey-review>
+        </ng-template>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>Payment</ng-template>
+        <ng-template matStepContent>
+            <app-survey-payment *ngIf="this.selectedIndex == 5"></app-survey-payment>
+        </ng-template>
+    </mat-step>
+</mat-stepper>

@@ -1,0 +1,12 @@
+.disable-click{
+    div>.mat-horizontal-stepper-header{
+        pointer-events: none;
+    }
+}
+
+
+@media(max-width:768px){
+    .mat-step-label{
+        display: none !important;
+    }
+}

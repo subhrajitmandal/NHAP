@@ -1,0 +1,130 @@
+<mat-card>
+    <div fxLayout="row" fxLayoutGap="10px">
+        <!-- Form -->
+        <div class="leftSection">
+            <form name="surveyStoneForm" [formGroup]="surveyStoneForm" novalidate autocomplete="off">
+                <div fxlayout="column" class="form-width">
+
+                    <!-- <div>
+                        <mat-form-field>
+                            <mat-label>Stone Position</mat-label>
+                            <mat-select formControlName="stonePosition" required
+                                (selectionChange)="stoneSelectionChange($event.value)">
+                                <mat-option value="-1">Select</mat-option>
+                                <mat-option value="1">Placement1</mat-option>
+                                <mat-option value="2">Placement2</mat-option>
+                                <mat-option value="3">Placement3</mat-option>
+                                <mat-option value="4">Placement4</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="!surveyStoneForm?.get('stonePosition')?.valid">
+                                Please select correct stone position
+                            </mat-error>
+                        </mat-form-field>
+
+                        <img *ngIf="stoneImage" class="stonePosition" [src]="stoneImage" alt="KMStone" />
+
+
+                    </div> -->
+
+                    <div>Find Your KM Stone</div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Nearest Stone From Plot</mat-label>
+                            <mat-select formControlName="stonePosition1" required>
+                                <mat-option value='0'>Select</mat-option>
+                                <mat-option value='1'>
+                                    Towards {{ cityOptions[0] }}
+                                </mat-option>
+                                <mat-option value='2'>
+                                    Towards {{ cityOptions[1] }}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="!surveyStoneForm?.get('stonePosition1')?.valid">
+                                Please select correct stone1 position
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label> KM Stone No.</mat-label>
+                            <input matInput formControlName="nearestStoneNo1" required>
+                            <mat-error *ngIf="!surveyStoneForm?.get('nearestStoneNo1')?.valid">
+                                Please enter correct stone no.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Distance From Plot Edge</mat-label>
+                            <input matInput formControlName="distanceFromPlot1" required/>
+                            <mat-error *ngIf="!surveyStoneForm?.get('distanceFromPlot1')?.valid">
+                                Please enter correct distance.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>2nd KM Stone No.</mat-label>
+                            <mat-select formControlName="stonePosition2" required>
+                                <mat-option value="0">Select</mat-option>
+                                <mat-option value="1">
+                                    Towards {{ cityOptions[0] }}
+                                </mat-option>
+                                <mat-option value="2">
+                                    Towards {{ cityOptions[1] }}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="!surveyStoneForm?.get('stonePosition2')?.valid">
+                                Please select correct stone2 position
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>2nd Nearest KM Stone No.</mat-label>
+                            <input matInput formControlName="nearestStoneNo2" required>
+                            <mat-error *ngIf="!surveyStoneForm?.get('nearestStoneNo2')?.valid">
+                                Please enter correct stone no.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div style="display: block">
+                        <mat-form-field>
+                            <mat-label>Distance From Plot2</mat-label>
+                            <input matInput formControlName="distanceFromPlot2">
+                            <mat-error *ngIf="!surveyStoneForm?.get('distanceFromPlot2')?.valid">
+                                Please enter correct distance.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Design -->
+        <div class="rightSection" #scrollMe [scrollTop]="scrollMe.scrollHeight/4 + 30">
+            <app-survey-diagram #diagram></app-survey-diagram>
+        </div>
+    </div>
+
+</mat-card>
+
+<!-- action buttons -->
+<mat-card-actions>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+
+        <button mat-raised-button color="accent" type="button" matStepperPrevious>Back & Edit</button>
+        <button mat-raised-button color="primary" type="button" [disabled]="! surveyStoneForm.valid"
+                (click)="submitSurveyStone()" matStepperNext>Save & Next
+        </button>
+
+    </div>
+</mat-card-actions>

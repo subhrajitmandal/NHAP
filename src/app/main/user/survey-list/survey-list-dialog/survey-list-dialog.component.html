@@ -1,0 +1,139 @@
+
+<h1 mat-dialog-title>
+    SURVEY DETAILS
+</h1>
+
+<mat-dialog-content>
+    <div fxLayout="column" fxLayoutAlign="start center">
+        <div>
+            Survey Id: {{ surveyDetails.survey_id }}
+        </div>
+        <div>
+            propertyType: {{ surveyDetails.propertyType }}
+        </div>
+        <div>
+            highwayType: {{ surveyDetails.highwayType }}
+        </div>
+        <div>
+            highwayNo: {{ surveyDetails.highwayNo }}
+        </div>
+        <div>
+            ownerName: {{ surveyDetails.ownerName }}
+        </div>
+        <div>
+            plotNo: {{ surveyDetails.plotNo }}
+        </div>
+        <div>
+            khataNo: {{ surveyDetails.khataNo }}
+        </div>
+        <div>
+            city: {{ surveyDetails.city }}
+        </div>
+        <div>
+            district: {{ surveyDetails.district }}
+        </div>
+        <div>
+            state: {{ surveyDetails.state }}
+        </div>
+        <div>
+            oilCompanyName: {{ surveyDetails.oilCompanyName }}
+        </div>
+        <div>
+            cityTowardsLeft: {{ surveyDetails.cityTowardsLeft }}
+        </div>
+        <div>
+            cityTowardsRight: {{ surveyDetails.cityTowardsRight }}
+        </div>
+        <div>
+            longLeft: {{ surveyDetails.longLeft }}
+        </div>
+        <div>
+            latLeft: {{ surveyDetails.latLeft }}
+        </div>
+        <div>
+            longRight: {{ surveyDetails.longRight }}
+        </div>
+        <div>
+            latRight: {{ surveyDetails.latRight }}
+        </div>
+        <div>
+            roadType: {{ surveyDetails.roadType }}
+        </div>
+        <div>
+            locationType: {{ surveyDetails.locationType }}
+        </div>
+        <div>
+            serviceRoad: {{ surveyDetails.serviceRoad }}
+        </div>
+        <div>
+            plotWidth: {{ surveyDetails.plotWidth }}
+        </div>
+        <div>
+            plotDepth: {{ surveyDetails.plotDepth }}
+        </div>
+        <div>
+            frontImage: {{ surveyDetails.frontImage }}
+        </div>
+        <div>
+            serviceRoadWidth: {{ surveyDetails.serviceRoadWidth }}
+        </div>
+        <div>
+            nearestStoneNo1: {{ surveyDetails.nearestStoneNo1 }}
+        </div>
+        <div>
+            distanceFromPlot1: {{ surveyDetails.distanceFromPlot1 }}
+        </div>
+        <div>
+            nearestStoneNo2: {{ surveyDetails.nearestStoneNo2 }}
+        </div>
+        <div>
+            distanceFromPlot2: {{ surveyDetails.distanceFromPlot2 }}
+        </div>
+        <div>
+            stonePosition: {{ surveyDetails.stonePosition }}
+        </div>
+        <div>
+            stonePosition1: {{ surveyDetails.stonePosition1 }}
+        </div>
+        <div>
+            stonePosition2: {{ surveyDetails.stonePosition2 }}
+        </div>
+        <div>
+            plotChainageNumber: {{ surveyDetails.plotChainageNumber }}
+        </div>
+        <div>
+            plotPlacementA: {{ surveyDetails.plotPlacementA }}
+        </div>
+        <div>
+            plotPlacementB: {{ surveyDetails.plotPlacementB }}
+        </div>
+        <div>
+            plotSide: {{ surveyDetails.plotSide }}
+        </div>
+        <div>
+            roadLeftPhoto: {{ surveyDetails.roadLeftPhoto }}
+        </div>
+        <div>
+            roadRightPhoto: {{ surveyDetails.roadRightPhoto }}
+        </div>
+        <div>
+            surveyDiagram: {{ surveyDetails.surveyDiagram }}
+        </div>
+
+        <div> DRAG AND DROP </div>
+       
+        <div *ngFor="let image of drag_drop | keyvalue">
+            {{image.key}} : {{image.value | json}}
+            <!-- Image {{ image.imageName }} <br/>
+            Index {{ image.imageIndex }} <br/>
+            Distance {{ image.imageDistance }} <br/>
+            Margin {{ image.imageMargin }} <br/>
+            Orientation {{ image.imageOrientation }} <br/>
+            Position {{ image.imagePos }} <br/>
+            Width {{ image.imageWidth }} <br/> -->
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Ok</button>
+</mat-dialog-actions>

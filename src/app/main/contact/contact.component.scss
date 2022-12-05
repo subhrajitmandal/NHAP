@@ -1,0 +1,112 @@
+.mainContent{
+    background-color: #FCEBFF;
+}
+
+.contactContainer{
+    padding: 20px;
+    display: flex;
+    margin: 30px auto;
+    max-width: 1000px;
+}
+
+
+.contactSection{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+.contactColumn{
+    flex:1 1 auto;
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    margin: 15px;
+    padding: 10px;
+    background-color: #fff;
+    min-height: 100px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: -4px 4px 10px -3px rgb(0 0 0 / 50%)
+}
+
+.contactColumn mat-icon{
+    font-size: 50px;
+    width: 100%;
+    fill: #85009C;
+    color: #85009C;
+    border-color: #85009C;
+}
+
+.contactColumn h2{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.contactColumn h3{
+    font-size: 20px;
+    word-break: break-all;
+}
+
+.mat-form-field{
+    display: block;
+}
+
+.formSection{
+    width: 60%;
+    display: flex;
+    padding: 15px;
+}
+
+.formSection form{
+    width: 100%;
+    padding: 30px;
+    border: 1px solid #222;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: -6px 7px 10px -5px rgb(0 0 0 / 50%);
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+}
+
+.formSection h1{
+    font-weight: bold;
+    // font-size: 35px;
+    color: #54595F;
+}
+
+.formSection ::ng-deep .mat-form-field .mat-form-field-flex{
+    border: 1px solid;
+    padding: 10px;
+}
+
+.formSection .btn-custom{
+    background-color: #85009C;
+    color: #fff;
+}
+
+
+@media(max-width: 768px){
+    .mainContent {
+        padding: 10px;
+    }
+    .contactContainer{
+        padding: 20px;
+        display: block;
+        margin: 0 auto;
+        max-width: 1000px;
+    }
+    .contactSection{
+        display: block;
+        width: 100%;
+    }
+    .contactColumn {
+        margin: 15px 0;
+        padding: 25px 25px 25px 25px;
+    }
+    .formSection{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0;
+    }
+}

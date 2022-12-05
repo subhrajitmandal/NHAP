@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>
+    SIGN UP
+</h1>
+
+<form name="signUpOtpForm" [formGroup]="signUpOtpForm" (ngSubmit)="register()" novalidate autocomplete="off">
+    <div mat-dialog-content>
+        <div>
+            <div *ngIf="serverError.length" class="error">
+                {{ serverError }}
+            </div>
+            <!-- Verify mobile OTP starts -->
+            <div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Enter Phone OTP</mat-label>
+                        <input matInput formControlName="mobileOtp" (focus)="removeServerError()">
+                        <mat-error *ngIf="!signUpOtpForm.get('mobileOtp')?.valid">
+                            Please enter correct OTP
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button type="button" mat-button color="primary" (click)="sendMobileOtp()">Resend Mobile OTP</button>
+                </div>
+            </div>
+            <!-- Verify mobile OTP ends -->
+
+            <!-- Verify email OTP starts -->
+            <div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Enter Email OTP</mat-label>
+                        <input matInput formControlName="emailOtp" (focus)="removeServerError()">
+                        <mat-error *ngIf="!signUpOtpForm.get('emailOtp')?.valid">
+                            Please enter correct OTP
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button type="button" mat-button color="primary" (click)="sendEmailOtp()">Resend Email OTP</button>
+                </div>
+            </div>
+            <!-- Verify email OTP ends -->
+        </div>
+
+    </div>
+
+    <div mat-dialog-actions>
+        <button type="submit" mat-raised-button color="primary" [disabled]="signUpOtpForm.invalid">
+            Submit
+        </button>
+        <button type="button" mat-raised-button color="basic" mat-dialog-close>
+            Cancel
+        </button>
+    </div>
+
+</form>

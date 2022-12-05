@@ -1,0 +1,53 @@
+
+<div style="width:80%; margin: 30px 10%;">
+    <div fxLayout="column"  fxLayoutGap="25px" >
+        <div>
+            <h1>
+                Wallet Balance: <b>{{ walletBalance }}</b>
+            </h1>
+                <!-- <mat-form-field>
+                    <input matInput placeholder="Filter" (keyup)="filterDatasource($event)" />
+                </mat-form-field> -->
+        </div>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="coinDatasource" matSortActive="date" matSortDirection="desc" matSort style="width:100%">
+          
+              <!-- Position Column -->
+              <ng-container matColumnDef="transaction">
+                <th mat-header-cell *matHeaderCellDef> Transactions </th>
+                <td mat-cell *matCellDef="let element">
+                    <b>{{ element.mode }}</b><br/>
+                    {{ element.message }} <br/>
+                    Transaction ID: {{ element.transaction_id }} <br/>
+                    {{ element.updated_at }}
+                </td>
+              </ng-container>
+
+              <!-- Position Column -->
+              <ng-container matColumnDef="amount">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Balance </th>
+                <td mat-cell *matCellDef="let element">
+
+                    <div [class.credit]="element.is_credit" *ngIf="element.is_credit">
+                        + Rs {{ element.amount }}
+                    </div>
+                    <div [class.debit]="element.is_debit" *ngIf="element.is_debit">
+                        - Rs {{ element.amount }}
+                    </div>
+                </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <div *ngIf="!coinDatasource.data.length" style="text-align:center; padding: 5px;">
+                No Records Found.
+            </div> 
+
+            <mat-paginator [pageSizeOptions]="[10, 50, 100]"
+                           showFirstLastButtons>
+            </mat-paginator>
+          </div>
+    </div>
+</div>

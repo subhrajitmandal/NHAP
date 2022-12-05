@@ -1,0 +1,18 @@
+<mat-toolbar>
+    <a [routerLink]="'/'"><span class="menuHeaderText">NHAP</span></a>
+    <span class="flex-right"></span>
+    <a [routerLink]="'../pricing'">Pricing</a>
+    <button mat-raised-button color="accent" class="m-1" [routerLink]="'../login'">Login</button>
+    <!-- <button mat-raised-button color="accent" class="m-1" [routerLink]="'../signup'">Signup</button> -->
+</mat-toolbar>
+
+<div class="homeMain">
+    <div class="overlay">
+
+        <div class="overlayCont">
+            <h1>{{title}}</h1>
+            <h2>{{subTitle}}</h2>
+        </div>
+
+    </div>
+</div>

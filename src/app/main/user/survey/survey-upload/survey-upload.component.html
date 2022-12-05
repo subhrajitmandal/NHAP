@@ -1,0 +1,37 @@
+<mat-card>
+    <div fxLayout="row" fxLayoutGap="10px">
+        <!-- Form -->
+        <div class="leftSection">
+            <div class="drag-container" id="images" cdkDropList [cdkDropListData]="addImage1"
+                [cdkDropListConnectedTo]="['map']">
+                <div class="IconCont" cdkDrag *ngFor="let icon of addImage1">
+                    <!-- {{ icon }} -->
+                    <img class="roadComponents" [class]="icon.toLowerCase()"
+                        [class.display-none]="icon.toLowerCase() === 'mediangap' && !isActiveMedianGap"
+                        alt="{{icon}}" src="assets/Icons/{{ icon }}.png">
+                    <p [class.display-none]="icon.toLowerCase() === 'mediangap' && !isActiveMedianGap">{{icon}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design -->
+        <div class="rightSection" #scrollMe [scrollTop]="scrollMe.scrollHeight/4 + 30">
+            <!-- Add image from left side to over here -->
+
+            <app-survey-diagram [enableDrag]="true" #diagram></app-survey-diagram>
+
+        </div>
+    </div>
+
+</mat-card>
+
+<!-- Stepper button -->
+<mat-card-actions>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <button mat-raised-button color="accent" type="button" matStepperPrevious>Back & Edit</button>
+
+        <button mat-raised-button color="primary" type="button" (click)="submitSurveyUpload()" matStepperNext>
+            Submit Survey
+        </button>
+    </div>
+</mat-card-actions>

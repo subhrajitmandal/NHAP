@@ -1,0 +1,26 @@
+.toolbar {
+    
+    div:first-child{
+        background-color: #673ab7;
+
+        div{
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 60px; 
+            padding: 10px;
+
+            mat-icon {
+                color: white;
+            }
+        }
+    }
+    
+    mat-grid-tile {
+        background-color: lightblue;
+
+        a {
+            text-decoration: none;
+        }
+    }
+}

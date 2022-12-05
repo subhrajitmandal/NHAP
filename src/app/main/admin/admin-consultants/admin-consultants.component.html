@@ -1,0 +1,76 @@
+
+<div class="mat-elevation-z8 consultants-table-content">
+
+    <button type="button" mat-raised-button color="primary" (click)="addConsultant()">
+        Add Consultant
+    </button>
+
+    <table mat-table [dataSource]="consultantDatasource" matSortActive="date" matSortDirection="desc" matSort>
+
+        <!-- Consultant id Column -->
+        <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> CONSULTANT ID</th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- consultant name Column -->
+        <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> CONSULTANT NAME </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- consultant phone Column -->
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> MOBILE NO </th>
+            <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+        </ng-container>
+
+        <!-- consultant email Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <!-- consultant address Column -->
+        <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ADDRESS </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+        </ng-container>
+
+        <!-- consultant state Column -->
+        <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> STATE </th>
+            <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> EDIT </th>
+            <td mat-cell *matCellDef="let row">
+                <button type="button" mat-icon-button
+                        (click)="handleEditConsultant(row, $event)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> DELETE </th>
+            <td mat-cell *matCellDef="let row">
+                <button type="button" mat-icon-button
+                        (click)="handleDeleteConsultant(row, $event)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div *ngIf="!consultantDatasource.data.length" class="no-record-status">
+        No Records Found.
+    </div> 
+
+    <mat-paginator [pageSizeOptions]="[10, 50, 100]" showFirstLastButtons>
+    </mat-paginator>
+</div>

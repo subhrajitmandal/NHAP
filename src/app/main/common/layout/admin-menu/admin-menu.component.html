@@ -1,0 +1,57 @@
+<div class="toolbar">
+    <div>
+        <div>
+            <mat-icon>account_circle</mat-icon>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+        <mat-grid-list cols="1" rowHeight="3.3:1">
+
+            <mat-grid-tile>
+                <a [routerLink]="['./admin/dashboards']">
+                    <span>
+                        <mat-icon>dashboard</mat-icon>Dashboard
+                    </span>
+                </a>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <a [routerLink]="['./admin/survey']">
+                    <span>
+                        <mat-icon>assignment</mat-icon>Survey
+                    </span>
+                </a>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <a [routerLink]="['./admin/users']">
+                    <span>
+                        <mat-icon>group</mat-icon>Users
+                    </span>
+                </a>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <a [routerLink]="['./admin/consultants']">
+                    <span>
+                        <mat-icon>badge</mat-icon>Consultants
+                    </span>
+                </a>
+            </mat-grid-tile>
+            <!-- <mat-grid-tile>
+                <a [routerLink]="['./admin/reports']">
+                    <span>
+                        <mat-icon>summarize</mat-icon>Reports
+                    </span>
+                </a>
+            </mat-grid-tile> -->
+            <mat-grid-tile>
+                <a (click)="logout()">
+                    <span>
+                        <mat-icon>logout</mat-icon>Logout
+                    </span>
+                </a>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+
+</div>
+

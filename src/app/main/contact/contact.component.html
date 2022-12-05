@@ -1,0 +1,83 @@
+<app-header></app-header>
+
+<div class="mainContent">
+
+  <div class="contactContainer">
+    <div class="contactSection">
+      <div class="contactColumn">
+        <mat-icon>phone_in_talk</mat-icon>
+        <h2>Call Us</h2>
+        <h3>+91 7008411500</h3>
+      </div>
+      <div class="contactColumn">
+        <mat-icon> email</mat-icon>
+        <h2>Write Us</h2>
+        <h3>info@nhaccesspermission.com</h3>
+      </div>
+      <div class="contactColumn">
+        <mat-icon>home</mat-icon>
+        <h2>Visit Us</h2>
+        <h3 style="font-size: 15px">Elix Techno Media Private limited, <br>
+          Plot No. 4704/5004, <br> Adimata Colony, Mancheswar Railway Colony,<br> Bhubaneswar, Khordha, Odisha, 751017
+        </h3>
+      </div>
+    </div>
+
+    <div class="formSection">
+      <form [formGroup]="addContactForm">
+        <h1>How can we help you?</h1>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required>
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="!addContactForm?.get('name')?.valid">
+            Please enter correct name
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Email Id</mat-label>
+          <input matInput formControlName="email" required>
+          <mat-icon matSuffix>drafts</mat-icon>
+          <mat-error *ngIf="!addContactForm?.get('email')?.valid">
+            Please enter correct email id
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Phone</mat-label>
+          <input formControlName="phone" matInput required>
+          <mat-icon matSuffix>call</mat-icon>
+          <mat-error *ngIf="!addContactForm?.get('phone')?.valid">
+            Please enter correct phone
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Subject</mat-label>
+          <input matInput formControlName="subject" required>
+          <mat-icon matSuffix>text</mat-icon>
+          <mat-error *ngIf="!addContactForm?.get('subject')?.valid">
+            Please enter correct subject
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Information</mat-label>
+          <textarea matInput formControlName="information" required></textarea>
+          <mat-icon matSuffix>information</mat-icon>
+          <mat-error *ngIf="!addContactForm?.get('information')?.valid">
+            Please enter correct information
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button class="btn-custom" (click)="addContact()">Send Now <i class="material-icons">
+            send
+          </i></button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

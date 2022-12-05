@@ -1,0 +1,58 @@
+
+<mat-drawer-container class="sidenav-containers">
+
+    <!-- Only display the drawer when admin is logged in -->
+    <mat-drawer mode="side" [opened]="currentRoute.length && currentRoute.indexOf('admin') !== -1 &&
+                                      currentRoute.indexOf('login') === -1" 
+                position="start" style="width: 20%;">
+
+        <ng-container *ngIf="currentRoute.length && currentRoute.indexOf('admin') !== -1 &&
+                            currentRoute.indexOf('login') === -1">
+            <app-admin-menu></app-admin-menu>
+        </ng-container>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <!-- Display the user toolbar contents here depending on user or admin logged in-->
+        <app-toolbar *ngIf="routeConfigs[currentRoute]?.section.length" 
+                    [section]="routeConfigs[currentRoute].section.substring(routeConfigs[currentRoute].section.lastIndexOf('/')+1,
+                               routeConfigs[currentRoute].section.length)" 
+                    [showHideButton]="routeConfigs[currentRoute].showHideButton" 
+                    [showHidePageHeader]="routeConfigs[currentRoute].showHidePageHeader"
+                    [isAdmin]="currentRoute?.length && currentRoute.indexOf('admin') !== -1 ? true : false">
+        </app-toolbar>
+
+        <!-- Diplay the router contents here -->
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+<!-- <mat-drawer-container class="sidenav-containers">
+
+    <mat-drawer position="start" opened #sidenav>
+        <app-admin-toolbar></app-admin-toolbar>
+
+    </mat-drawer>
+    <mat-drawer-content>
+        <mat-toolbar color="primary">
+            <button mat-icon-button >  
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>NHAI</span>
+            <span class="space-evenly"></span>
+            <button type="button" mat-icon-button>
+                <mat-icon>logout</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+
+    </mat-drawer-content>
+</mat-drawer-container> -->
+<!--  (click)="sidenav.toggle()" -->
