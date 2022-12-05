@@ -1,28 +1,60 @@
-
 <div fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="24px">
-
     <div></div>
-    <div class="mat-elevation-z2" style="width: 80%; padding: 2%">
-        <h2>How To Use</h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget nisl placerat, lobortis justo sed, aliquam purus. 
-            In tempor euismod odio vitae rhoncus. Praesent suscipit vehicula dui sed sollicitudin. Etiam dapibus sed lorem eu rutrum. 
-            Aliquam finibus diam massa, non convallis turpis molestie in. Class aptent taciti sociosqu ad litora torquent per conubia 
-            nostra, per inceptos himenaeos. Etiam lobortis, nisl nec lacinia mattis, odio mi porta ex, pharetra efficitur eros enim a lacus. 
-            Fusce ac dui id magna posuere ultricies. Morbi vitae sagittis nulla, sed placerat tellus. Vestibulum ante ipsum primis in 
-            faucibus orci luctus et ultrices posuere cubilia curae; Proin aliquet suscipit ultricies.<br/><br/>
-            Nullam non erat sit amet lacus fermentum maximus. Nunc nec ornare urna. Nam nec justo tellus. Fusce porta euismod eleifend. 
-            Nulla a magna in erat pulvinar auctor. Phasellus eleifend, mi a convallis venenatis, enim magna vestibulum lectus, 
-            laoreet imperdiet ex orci eu nunc. Nam convallis et massa eu consequat.<br/><br/>
-            Sed justo nisi, iaculis quis leo eget, egestas ultricies est. Donec ullamcorper, urna eget malesuada dictum, eros quam 
-            venenatis mi, ac lobortis dui lorem sit amet dui. Suspendisse gravida eleifend felis ut faucibus. In convallis diam in nisi porta,
-            at ultrices est facilisis. Mauris et sollicitudin turpis. Aenean vehicula tellus eget urna volutpat tempus. Etiam tempor nisl et 
-            sagittis tempus. Donec in velit eros. Etiam diam velit, blandit id dui non, ullamcorper dignissim felis. Suspendisse potenti.
-        </p>
+    <div style="padding: 10px">
+      <h2>How To Use</h2>
+      <div class="stepper">
+        <div class="step">
+          <img src="./../../../assets/steps/SS1.png" alt="step 1" />
+          <h4>Step 1</h4>
+          <ul>
+            <li>Give the basic Information about the property</li>
+            <li>Mention the Nearby Cities on LHS & RHS of your plot</li>
+            <li>
+              Take the longitude & Latitude of the plot while standing at the
+              respective edge of the plot.
+            </li>
+          </ul>
+        </div>
+        <mat-icon class="forward">arrow_forward</mat-icon>
+        <div class="step">
+          <img src="./../../../assets/steps/SS2.png" alt="step 2" />
+          <h4>Step 2</h4>
+          <ul>
+            <li>Provide Plot Dimension & Pictures</li>
+          </ul>
+        </div>
+        <mat-icon class="forward">arrow_forward</mat-icon>
+        <div class="step">
+          <img src="./../../../assets/steps/SS3.png" alt="step 3" />
+          <h4>Step 3</h4>
+          <ul>
+            <li>Provide any 2 Kilometer stone numbers</li>
+            <li>Provide the distance from the edge of the plot</li>
+          </ul>
+        </div>
+        <mat-icon class="forward">arrow_forward</mat-icon>
+        <div class="step">
+          <img src="./../../../assets/steps/SS4.png" alt="step 4" />
+          <h4>Step 4</h4>
+          <ul>
+            <li>Drag & drop Different road elements</li>
+            <li>Mention the distance from the plot edge</li>
+          </ul>
+        </div>
+        <mat-icon class="forward">arrow_forward</mat-icon>
+        <div class="step">
+          <img src="./../../../assets/steps/SS5.png" alt="step 5" />
+        </div>
+      </div>
     </div>
-    <div>
-        <button mat-raised-button color="primary" aria-label="survey start key" [routerLink]="['/user/survey']">
-            Start Survey
-        </button>
+    <div class="MRGB20PX">
+      <button
+        mat-raised-button
+        color="primary"
+        aria-label="survey start key"
+        [routerLink]="['/user/survey']"
+      >
+        Start Survey
+      </button>
     </div>
-</div>
+  </div>

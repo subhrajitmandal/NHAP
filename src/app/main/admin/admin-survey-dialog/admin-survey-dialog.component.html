@@ -1,0 +1,58 @@
+<h1 mat-dialog-title>Survey Info</h1>
+
+<div mat-dialog-content>
+  <table>
+    <tbody>
+      <tr>
+        <td class="font-weight-bold">Highway no</td>
+        <td>: {{ data?.highwayNo || "N/A" }}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">Highway type</td>
+        <td>: {{ data?.highwayType || "N/A" }}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">City</td>
+        <td>: {{ data?.city || "N/A" }}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">City towards left</td>
+        <td>: {{ data?.cityTowardsLeft || "N/A" }}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">City towards right</td>
+        <td>: {{ data?.cityTowardsRight || "N/A" }}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">Oil company name</td>
+        <td>: {{ data?.oilCompanyName || "N/A" }}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">Plot depth</td>
+        <td>: {{ data?.plotDepth || "N/A" }}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">Plot width</td>
+        <td>: {{ data?.plotWidth || "N/A" }}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">Km stone 1</td>
+        <td>: {{ data?.KMStone1 || "N/A" }}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">Km stone 2</td>
+        <td>: {{ data?.KMStone2 || "N/A" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div mat-dialog-actions>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="closeDialog('ok')"
+    cdkFocusInitial
+  >
+    Ok
+  </button>
+</div>

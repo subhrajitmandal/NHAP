@@ -1,0 +1,42 @@
+.stepper {
+    display: flex;
+    justify-content: space-between;
+  
+    .step {
+      width: 15%;
+  
+      h4 {
+        text-align: center;
+        margin-top: 5px;
+      }
+  
+      img {
+        width: 50%;
+        display: flex;
+        margin: auto;
+      }
+    }
+  
+    .forward {
+      align-self: center;
+      width: 26px;
+    }
+  }
+  
+  .MRGB20PX {
+    margin-bottom: 20px;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .stepper {
+      flex-direction: column;
+  
+      .step {
+        width: 100%;
+      }
+  
+      .forward {
+        margin-bottom: 5px;
+      }
+    }
+  }

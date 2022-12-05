@@ -27,6 +27,7 @@ import { AdminConsultantsComponent } from './admin-consultants/admin-consultants
 import { AdminReportsComponent } from './admin-reports/admin-reports.component';
 import { AdminConsultantsDialogComponent } from './admin-consultants/admin-consultants-dialog/admin-consultants-dialog.component';
 import { AdminUsersDialogComponent } from './admin-users/admin-users-dialog/admin-users-dialog.component';
+import { AdminSurveyDialogComponent } from './admin-survey-dialog/admin-survey-dialog.component';
 
 const appRoutes: Routes = [
   {
@@ -63,7 +64,8 @@ const appRoutes: Routes = [
     AdminConsultantsComponent,
     AdminReportsComponent,
     AdminConsultantsDialogComponent,
-    AdminUsersDialogComponent
+    AdminUsersDialogComponent,
+    AdminSurveyDialogComponent
   ],
   imports: [
     RouterModule.forChild(appRoutes),
