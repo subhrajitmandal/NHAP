@@ -1,94 +1,140 @@
 <mat-toolbar>
     <a [routerLink]="'/'"><span class="menuHeaderText">NHAP</span></a>
     <span class="flex-right"></span>
-    <a [routerLink]="'../pricing'">Pricing</a>
-    <button mat-raised-button color="accent" class="m-1" [routerLink]="'../login'">Login</button>
+  
+    <div>
+      <a [matMenuTriggerFor]="priceMenu">Services</a>
+  
+      <mat-menu #priceMenu>
+        <button mat-menu-item [routerLink]="['../login']">
+          <span>Site Feasibility Test</span>
+        </button>
+        <button mat-menu-item [routerLink]="['../consultant']">
+          <span>Find a Consultant</span>
+        </button>
+        <button mat-menu-item [routerLink]="['../pricing']">
+          <span>Pricing</span>
+        </button>
+      </mat-menu>
+    </div>
+    <button
+      mat-raised-button
+      color="accent"
+      class="m-1"
+      [routerLink]="'../login'"
+    >
+      Login
+    </button>
     <!-- <button mat-raised-button color="accent" class="m-1" [routerLink]="'../signup'">Signup</button> -->
-</mat-toolbar>
-
-<div class="homeMain">
-
+  </mat-toolbar>
+  
+  <div class="homeMain">
     <div class="overlay">
-
-        <div class="overlayCont">
-
-        </div>
-
+      <div class="overlayCont"></div>
     </div>
-
+  
     <!-- <h1>{{title}}</h1>
-        <h2>{{shortTitle}}</h2> -->
-
+          <h2>{{shortTitle}}</h2> -->
+  
     <div class="serviceSection">
-        <div class="serviceContent">
-            <img src="./../../../assets/home/online-survey.png" alt="OnlineSurvey">
-            <h3>SITE FEASIBILITY TEST</h3>
-            <p>In this process test whether your site can get access permission or not as per the Latest Guideline
-                of
-                the Ministry of Road Transport and Highways. </p>
-            <button mat-raised-button color="accent" class="m-1" [routerLink]="'../login'">Get Started</button>
-        </div>
-        <div class="serviceContent">
-            <img src="./../../../assets/home/learn-and-earn.png" alt="LearnAndEarn">
-            <h3>LEARN AND EARN</h3>
-            <p>Learn the details of Ministry of Road Transport and Highways guideline by using the self explanatory
-                videos. How to practice. Sample drawings. Be a consultant and earn.</p>
-            <button mat-raised-button color="accent" class="m-1" [routerLink]="'/'">Get Started</button>
-        </div>
-        <div class="serviceContent">
-            <img src="./../../../assets/home/consultant.png" alt="Consultant">
-            <h3>FIND A CONSULTANT</h3>
-            <p>Find a NH Access Permission consultant near you. Who can prepare the drawings and can guide you in
-                the
-                process of getting access permission from NH.</p>
-            <button mat-raised-button color="accent" class="m-1" [routerLink]="'../consultant'">Get Started</button>
-        </div>
+      <div class="serviceContent">
+        <img src="./../../../assets/home/online-survey.png" alt="OnlineSurvey" />
+        <h3>SITE FEASIBILITY TEST</h3>
+        <p>
+          In this process test whether your site can get access permission or not
+          as per the Latest Guideline of the Ministry of Road Transport and
+          Highways.
+        </p>
+        <button
+          mat-raised-button
+          color="accent"
+          class="m-1"
+          [routerLink]="'../login'"
+        >
+          Get Started
+        </button>
+      </div>
+      <!-- <div class="serviceContent">
+        <img src="./../../../assets/home/learn-and-earn.png" alt="LearnAndEarn" />
+        <h3>LEARN AND EARN</h3>
+        <p>
+          Learn the details of Ministry of Road Transport and Highways guideline
+          by using the self explanatory videos. How to practice. Sample drawings.
+          Be a consultant and earn.
+        </p>
+        <button mat-raised-button color="accent" class="m-1" [routerLink]="'/'">
+          Get Started
+        </button>
+      </div> -->
+      <div class="serviceContent">
+        <img src="./../../../assets/home/consultant.png" alt="Consultant" />
+        <h3>FIND A CONSULTANT</h3>
+        <p>
+          Find a NH Access Permission consultant near you. Who can prepare the
+          drawings and can guide you in the process of getting access permission
+          from NH.
+        </p>
+        <button
+          mat-raised-button
+          color="accent"
+          class="m-1"
+          [routerLink]="'../consultant'"
+        >
+          Get Started
+        </button>
+      </div>
     </div>
-
-
-
+  
     <!-- <div class="homeButtons" fxLayout="column" fxLayoutAlign="space-evenly" fxLayoutGap="15px">
-        <button type="button" mat-raised-button color="primary" class="m-1" [routerLink]="'../login'">Login</button>
-        <button type="button" mat-raised-button color="accent" class="m-1" [routerLink]="'../signup'">Signup</button>
-    </div> -->
-</div>
-
-<div class="info">
+          <button type="button" mat-raised-button color="primary" class="m-1" [routerLink]="'../login'">Login</button>
+          <button type="button" mat-raised-button color="accent" class="m-1" [routerLink]="'../signup'">Signup</button>
+      </div> -->
+  </div>
+  
+  <div class="info">
     <div class="homeContainer">
-        <div class="imgSection"><img src="assets/home/think.png" alt="HomeLeftImg"></div>
-        <div class="infoSection">
-            <h1>Why NH Access Permission?</h1>
-            <h2>There are many reasons why you should choose NH Access Permission for</h2>
-
-            <ul class="listItems">
-                <li class="listItem">
-                    <span class="listIcon">
-                        <mat-icon>check_circle</mat-icon>
-                    </span>
-                    <span class="listItemText">It's a web-based system,
-                        so you can generate feasibility reports from anywhere in the
-                        country.</span>
-                </li>
-                <li class="listItem">
-                    <span class="listIcon">
-                        <mat-icon>check_circle</mat-icon>
-                    </span>
-                    <span class="listItemText">You can register your
-                        self as NH consultant and find other NH consultants in your
-                        area to build fuel stations on National highway.</span>
-                </li>
-                <li class="listItem">
-                    <span class="listIcon">
-                        <mat-icon>check_circle</mat-icon>
-                    </span>
-                    <span class="listItemText">We offer training
-                        and certification program for people who want to become NH
-                        consultants and earn by building fuel stations on National
-                        highway.</span>
-                </li>
-            </ul>
-        </div>
+      <div class="imgSection">
+        <img src="assets/home/think.png" alt="HomeLeftImg" />
+      </div>
+      <div class="infoSection">
+        <h1>Why NH Access Permission?</h1>
+        <h2>
+          There are many reasons why you should choose NH Access Permission for
+        </h2>
+  
+        <ul class="listItems">
+          <li class="listItem">
+            <span class="listIcon">
+              <mat-icon>check_circle</mat-icon>
+            </span>
+            <span class="listItemText"
+              >It's a web-based system, so you can generate feasibility reports
+              from anywhere in the country.</span
+            >
+          </li>
+          <li class="listItem">
+            <span class="listIcon">
+              <mat-icon>check_circle</mat-icon>
+            </span>
+            <span class="listItemText"
+              >You can register yourself as an NH consultant or find an NH
+              Consultant in your area to assist you in getting NHAI access
+              permission for your Properties.</span
+            >
+          </li>
+          <li class="listItem">
+            <span class="listIcon">
+              <mat-icon>check_circle</mat-icon>
+            </span>
+            <span class="listItemText"
+              >We offer a training program for people who want to become NH
+              consultant and earn by giving consultancy service in getting NHAI
+              access permission for different types of property.</span
+            >
+          </li>
+        </ul>
+      </div>
     </div>
-</div>
-
-<app-footer></app-footer>
+  </div>
+  
+  <app-footer></app-footer>

@@ -41,64 +41,65 @@ import { HeaderComponent } from './main/header/header.component';
 import { PricingComponent } from './main/pricing/pricing.component';
 import { SpinnerInterceptor } from './main/common/interceptors/spinner.interceptor';
 import { AuthGuard } from './main/common/guard/auth.guard';
-
+import { MatMenuModule } from '@angular/material/menu';
 
 const appRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'user',
-    loadChildren: () => import('./main/user/user.module').then((m) => m.UserModule),
-    canActivate: [AuthGuard]
+    loadChildren: () =>
+      import('./main/user/user.module').then((m) => m.UserModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'admin',
-    loadChildren: () => import('./main/admin/admin.module').then((m) => m.AdminModule),
-    canActivate: [AuthGuard]
+    loadChildren: () =>
+      import('./main/admin/admin.module').then((m) => m.AdminModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'consultant',
     component: ConsultantComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'pricing',
     component: PricingComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'contact',
     component: ContactComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'disclaimer',
     component: DisclaimerComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'privacyPolicy',
     component: PrivacyPolicyComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'termsnconditions',
     component: TermnconditionsComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'support',
     component: SupportComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: '**',
-    redirectTo: ''
-  }
-
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
@@ -113,7 +114,7 @@ const appRoutes: Routes = [
     TermnconditionsComponent,
     FooterComponent,
     HeaderComponent,
-    PricingComponent
+    PricingComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'corrected' }),
@@ -123,6 +124,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatButtonModule,
     MatIconModule,
+    MatMenuModule,
     MatToolbarModule,
     FlexLayoutModule,
     LoginModule,
@@ -143,13 +145,13 @@ const appRoutes: Routes = [
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: HTTPErrorInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: HTTPErrorInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
