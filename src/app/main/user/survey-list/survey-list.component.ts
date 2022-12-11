@@ -802,15 +802,15 @@ export class SurveyListComponent implements AfterViewInit, OnInit {
         body: [
           ['1.', 'Width or Frontage of the plot', '35m', `${selectedSurvey?.plotWidth}`, `${this.plotWidthNorm ? 'YES' : 'NO'}`],
           ['2.', 'Depth of the plot from Road ROW', '35m', `${selectedSurvey?.plotDepth}`, `${this.plotDepthNorm ? 'YES' : 'NO'}`],
-          ['3.', 'Intersection with any category of road', 'Minimum 300m', `${intersectionList[0]?.imageDistance}`, `${intersectionList[0]?.imageDistance >= 300 ? 'YES' : 'NO'}`],
-          ['4.', 'Median Gap', 'Minimum 300m', `${medianGapList[0]?.imageDistance}`, `${medianGapList[0]?.imageDistance >= 300 ? 'YES' : 'NO'}`],
-          ['5.', 'Distance from Check barrier', 'Minimum 1000m', `${checkBarrierList[0]?.imageDistance}`, `${this.checkBarrierCondition ? 'YES' : 'NO'}`],
-          ['6.', 'Toll Plaza', 'Minimum 1000m', `${tollPlazaList[0]?.imageDistance}`, `${tollPlazaList[0]?.imageDistance >= 300 ? 'YES' : 'NO'}`],
-          ['7.', 'Railway level crossing', 'Minimum 1000m', `${railwayLevelCrossingList[0]?.imageDistance}`, `${this.railwayLevelCrossingCondition ? 'YES' : 'NO'}`],
-          ['8.', 'Distance from start of approach road of Road Over Bridge', 'Minimum 200m', `${roadOverBridgeList[0]?.imageDistance}`, `${this.roadOverBridgeCondition ? 'YES' : 'NO'}`],
-          ['9.', 'Distance from start of Grade Separator', 'Minimum 300m', `${gradeSeperatorList[0]?.imageDistance}`, `${this.gradeSeperatorCondition ? 'YES' : 'NO'}`],
-          ['10.', 'Distance from start of Flyover', 'Minimum 300m', `${roadUnderBridgeList[0]?.imageDistance}`, `${this.roadUnderBridgeCondition ? 'YES' : 'NO'}`],
-          ['11.', 'Nearest Fuel station on either side of the road', 'Minimum 1000m', `${fuelStationList[0]?.imageDistance}`, `${this.fuelStationCondition ? 'YES' : 'NO'}`]
+          ['3.', 'Intersection with any category of road', 'Minimum 300m', `${intersectionList[0]?.imageDistance || "NA"}`, `${intersectionList[0]?.imageDistance >= 300 ? 'YES' : 'NO'}`],
+          ['4.', 'Median Gap', 'Minimum 300m', `${medianGapList[0]?.imageDistance || "NA"}`, `${medianGapList[0]?.imageDistance >= 300 ? 'YES' : 'NO'}`],
+          ['5.', 'Distance from Check barrier', 'Minimum 1000m', `${checkBarrierList[0]?.imageDistance || "NA"}`, `${this.checkBarrierCondition ? 'YES' : 'NO'}`],
+          ['6.', 'Toll Plaza', 'Minimum 1000m', `${tollPlazaList[0]?.imageDistance || "NA"}`, `${tollPlazaList[0]?.imageDistance >= 300 ? 'YES' : 'NO'}`],
+          ['7.', 'Railway level crossing', 'Minimum 1000m', `${railwayLevelCrossingList[0]?.imageDistance || "NA"}`, `${this.railwayLevelCrossingCondition ? 'YES' : 'NO'}`],
+          ['8.', 'Distance from start of approach road of Road Over Bridge', 'Minimum 200m', `${roadOverBridgeList[0]?.imageDistance || "NA"}`, `${this.roadOverBridgeCondition ? 'YES' : 'NO'}`],
+          ['9.', 'Distance from start of Grade Separator', 'Minimum 300m', `${gradeSeperatorList[0]?.imageDistance || "NA"}`, `${this.gradeSeperatorCondition ? 'YES' : 'NO'}`],
+          ['10.', 'Distance from start of Flyover', 'Minimum 300m', `${roadUnderBridgeList[0]?.imageDistance || "NA"}`, `${this.roadUnderBridgeCondition ? 'YES' : 'NO'}`],
+          ['11.', 'Nearest Fuel station on either side of the road', 'Minimum 1000m', `${fuelStationList[0]?.imageDistance || "NA"}`, `${this.fuelStationCondition ? 'YES' : 'NO'}`]
           // ...
         ],
         margin: { top: 60 },

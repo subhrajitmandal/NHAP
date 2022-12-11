@@ -28,6 +28,7 @@ import { SurveyReviewComponent } from './survey-review/survey-review.component';
 import { SurveyDiagramComponent } from './survey-diagram/survey-diagram.component';
 import { SurveyDialogComponent } from './survey-dialog/survey-dialog.component';
 import { SurveyPaymentComponent } from './survey-payment/survey-payment.component';
+import { SurveyInfoDialogComponent } from './survey-info-dialog/survey-info-dialog.component';
 
 const appRoutes: Routes = [
   {
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     SurveyReviewComponent,
     SurveyDiagramComponent,
     SurveyDialogComponent,
-    SurveyPaymentComponent
+    SurveyPaymentComponent,
+    SurveyInfoDialogComponent
   ],
   imports: [
     RouterModule.forChild(appRoutes),
