@@ -384,7 +384,7 @@ export class SurveyDiagramComponent implements OnInit, OnDestroy {
             KMStone1: nearestKMStone1 - 1,
             KMStone2: this.diagramForm.get('KMStone1')?.value + 1,
             plotChainageNumber: this.diagramForm.get('KMStone1')?.value,
-            plotPlacementA: stoneKM2PlotDistance,
+            plotPlacementA: stoneKM2PlotDistance - plotWidth,
             plotPlacementB: stoneKM2PlotDistance,
             plotSide: 'LHS'
           });
@@ -418,7 +418,7 @@ export class SurveyDiagramComponent implements OnInit, OnDestroy {
           this.diagramForm.patchValue({
             KMStone2: this.diagramForm.get('KMStone1')?.value + 1,
             plotChainageNumber: this.diagramForm.get('KMStone1')?.value,
-            plotPlacementA: stoneKM1PlotDistance,
+            plotPlacementA: stoneKM1PlotDistance, 
             plotPlacementB: this.diagramForm.get('plotPlacementA')?.value + plotWidth,
             plotSide: 'LHS'
           });
@@ -430,7 +430,7 @@ export class SurveyDiagramComponent implements OnInit, OnDestroy {
             KMStone2: this.diagramForm.get('KMStone1')?.value - 1,
             plotChainageNumber: this.diagramForm.get('KMStone2')?.value,
             plotPlacementA: stoneKM2PlotDistance,
-            plotPlacementB: stoneKM2PlotDistance,
+            plotPlacementB: stoneKM2PlotDistance - plotWidth,
             plotSide: 'RHS'
           });
 
@@ -462,8 +462,8 @@ export class SurveyDiagramComponent implements OnInit, OnDestroy {
             KMStone1: nearestKMStone1 - 1,
             KMStone2: this.diagramForm.get('KMStone1')?.value + 1,
             plotChainageNumber: this.diagramForm.get('KMStone1')?.value,
-            plotPlacementA: stoneKM2PlotDistance,
-            plotPlacementB: this.diagramForm.get('plotPlacementA')?.value + plotWidth,
+            plotPlacementA: stoneKM2PlotDistance - plotWidth,
+            plotPlacementB: this.diagramForm.get('plotPlacementA')?.value,
             plotSide: 'LHS'
           });
 
@@ -522,7 +522,7 @@ export class SurveyDiagramComponent implements OnInit, OnDestroy {
             KMStone1: nearestKMStone1 - Math.floor(stoneKM1PlotDistance / 1000) - 1,
             KMStone2: this.diagramForm.get('KMStone1')?.value + 1,
             plotChainageNumber: this.diagramForm.get('KMStone1')?.value,
-            plotPlacementA: stoneKM2PlotDistance,
+            plotPlacementA: stoneKM2PlotDistance - plotWidth,
             plotPlacementB: stoneKM2PlotDistance,
             plotSide: 'LHS'
           });
@@ -600,7 +600,7 @@ export class SurveyDiagramComponent implements OnInit, OnDestroy {
             KMStone1: nearestKMStone1 - Math.floor(stoneKM1PlotDistance / 1000) - 1,
             KMStone2: this.diagramForm.get('KMStone1')?.value + 1,
             plotChainageNumber: this.diagramForm.get('KMStone1')?.value,
-            plotPlacementA: stoneKM2PlotDistance,
+            plotPlacementA: stoneKM2PlotDistance - plotWidth,
             plotPlacementB: stoneKM2PlotDistance,
             plotSide: 'LHS'
           });

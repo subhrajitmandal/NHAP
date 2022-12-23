@@ -88,14 +88,14 @@
                     X {{surveyDiagramData?.plotDepth}} mtrs
                 </ng-container>
 
-                <div class="plotPlacement1" style="display: none;"
+                <div class="plotPlacement1"
                     *ngIf=" surveyDiagramData?.nearestStoneNo1 !== 0
                             && surveyDiagramData?.nearestStoneNo2 !== 0
                             && surveyDiagramData?.distanceFromPlot1 !== 0 
                             && surveyDiagramData?.distanceFromPlot2 !== 0">
                     <p class="plotPlacementCont1">{{ diagramForm.get('plotChainageNumber')?.value }}:{{diagramForm.get('plotPlacementA')?.value}} {{diagramForm.get('plotSide')?.value}}</p>
                 </div>
-                <div class="plotPlacement2" style="display: none;"
+                <div class="plotPlacement2"
                     *ngIf=" surveyDiagramData?.nearestStoneNo1 !== 0 
                             && surveyDiagramData?.nearestStoneNo2 !== 0 
                             && surveyDiagramData?.distanceFromPlot1 !== 0 
