@@ -463,7 +463,7 @@ export class SurveyDiagramComponent implements OnInit, OnDestroy {
             KMStone2: this.diagramForm.get('KMStone1')?.value + 1,
             plotChainageNumber: this.diagramForm.get('KMStone1')?.value,
             plotPlacementA: stoneKM2PlotDistance - plotWidth,
-            plotPlacementB: this.diagramForm.get('plotPlacementA')?.value,
+            plotPlacementB: this.diagramForm.get('plotPlacementA')?.value + plotWidth,
             plotSide: 'LHS'
           });
 
